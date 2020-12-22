@@ -36,6 +36,11 @@ h1, h2, h3 {
   margin-top: 2.5rem;
 }
 
+#submitWorkOrderButton {
+  display: block;
+  margin: 1rem auto;
+}
+
 .address-container {
   background-color: #ECECEC;
   color: #222831;
