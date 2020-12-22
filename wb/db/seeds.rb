@@ -1,3 +1,25 @@
+# Add seed facilities to below array
+# Facility name must be unique to be created
+FACILITIES = [
+  { name: 'Central Park', private: false },
+  { name: 'New York City Public Library', private: false },
+  { name: 'Radio City Music Hall', private: true },
+  { name: 'Empire State Building', private: true },
+  { name: 'Town Center', private: false },
+  { name: 'MacArthur Center', private: true },
+  { name: 'Town Point Park', private: false },
+  { name: 'Ted Constant Convocation Center', private: true },
+  { name: 'City Square', private: false },
+  { name: 'The NorVA', private: true }
+]
+
+# Samples for address generation
+# If cities are added to array, be sure to update create_facility_address
+# to appropriately assign state based on sampled city name
+STREET_NAMES   = %w(Main Second Oak Elm Michigan Third)
+STREET_ENDINGS = %w(St Dr Ave Pl Rd)
+CITIES         = %w(Denver Chicago Missoula Atlanta Sacramento)
+
 # Generates random number of floors and rooms for Facility
 def create_floors_and_rooms facility
   size = rand 1..10
@@ -19,37 +41,23 @@ end
 # Generates sample address for Facility
 def create_facility_address facility
   a = {
-    line_1: "#{rand 100} #{%w(Main Second Oak Elm Michigan Third).sample} #{%w(St Dr Ave Pl Rd).sample}",
-    city: "#{%w(Denver Chicago Missoula Atlanta Sacramento).sample}",
+    line_1: "#{rand 100} #{STREET_NAMES.sample} #{STREET_ENDINGS.sample}",
+    city: "#{CITIES.sample}",
     zip: "#{rand 10000..99999}"
   }
 
   a[:line_2] = "Suite #{rand 100}" if [true, false].sample
 
-  case a[:city]
-  when 'Denver' then a[:state] = 'CO'
-  when 'Chicago' then a[:state] = 'IL'
-  when 'Missoula' then a[:state] = 'MT'
-  when 'Atlanta' then a[:state] = 'GA'
-  when 'Sacramento' then a[:state] = 'CA'
-  end
+  a[:state] = case a[:city]
+              when 'Denver'     then 'CO'
+              when 'Chicago'    then 'IL'
+              when 'Missoula'   then 'MT'
+              when 'Atlanta'    then 'GA'
+              when 'Sacramento' then 'CA'
+              end
+
   facility.create_address a
 end
-
-# Add seed facilities to below array
-# Facility name must be unique to be created
-FACILITIES = [
-  { name: 'Central Park', private: false },
-  { name: 'New York City Public Library', private: false },
-  { name: 'Radio City Music Hall', private: true },
-  { name: 'Empire State Building', private: true },
-  { name: 'Town Center', private: false },
-  { name: 'MacArthur Center', private: true },
-  { name: 'Town Point Park', private: false },
-  { name: 'Ted Constant Convocation Center', private: true },
-  { name: 'City Square', private: false },
-  { name: 'The NorVA', private: true }
-]
 
 # Iterates over FACILITIES array and creates facilities that aren't found in the database
 FACILITIES.each { |f| Facility.create f unless Facility.find_by(name: f[:name]) }
