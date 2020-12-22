@@ -18,6 +18,53 @@
       <h1 id = 'title' class = 'uk-header'>Workbench</h1>
       <h2 id = 'pageName' class = 'uk-header'>NEW WORK ORDER</h2>
     </header>
+        <form uk-grid>
+          <div class = 'uk-width-1-1'>
+            <label for = 'facilityName' class = 'uk-form-label'>Facility Name</label>
+            <input id = 'facilityName' class = 'uk-input' list = 'facilities' placeholder = 'Kramerica Industries'>
+            <datalist id = 'facilities'>
+            </datalist>
+          </div>
+          <div class = 'uk-width-1-2'>
+            <label for = 'floorNumbers' class = 'uk-form-label'>Floor</label><br>
+            <div class = 'uk-form-controls'>
+              <select class = 'uk-select' id = 'floorNumbers'>
+              </select>
+            </div>
+          </div>
+          <div class = 'uk-width-1-2'>
+            <label for = 'roomNames' class = 'uk-form-label'>Room</label>
+            <div class = 'uk-form-controls'>
+              <select class = 'uk-select' id = 'roomNames'>
+              </select>
+            </div>
+          </div>
+          <div class = 'uk-width-1-1'>
+            <label for = 'disciplines' class = 'uk-form-label'>Discipline</label>
+            <div class = 'uk-form-controls'>
+              <select class = 'uk-select' id = 'disciplines'>
+                <option value = 'Carpentry'>Carpentry</option>
+                <option value = 'Electrical'>Electrical</option>
+                <option value = 'Grounds'>Grounds</option>
+                <option value = 'Housekeeping'>Housekeeping</option>
+                <option value = 'HVAC'>HVAC</option>
+                <option value = 'Moving'>Moving</option>
+                <option value = 'Plumbing'>Plumbing</option>
+                <option value = 'Other'>Other</option>
+              </select>
+            </div>
+          </div>
+          <div class = 'uk-width-1-1'>
+            <label for = 'description' class = 'uk-form-label'>Description</label>
+            <textarea id = 'description' class = 'uk-textarea' rows = '5'></textarea>
+          </div>
+          <div uk-form-custom = 'target: true' class = 'uk-width-1-1'>
+            <label for 'imageUpload' class = 'uk-form-label'>Upload Images</label><br>
+            <input id = 'imageUpload' type = 'file' multiple>
+            <input class = 'uk-input uk-form-width-medium' type = 'text' placeholder = 'Select file' disabled>
+            <button class = 'uk-button uk-button-default'>Upload</button>
+          </div>
+        </form>
     </main>
   </body>
 </html>
