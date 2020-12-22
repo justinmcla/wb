@@ -58,3 +58,7 @@ h1, h2, h3 {
 .uk-button:active {
   transform: translateY(1px);
 }
+
+.uk-section-default {
+  background-color: transparent;
+}
