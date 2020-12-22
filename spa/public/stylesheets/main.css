@@ -15,8 +15,8 @@ html, body {
   font-family: 'Roboto', sans-serif;
 }
 
-main {
-  width: 75%;
+body {
+  margin-top: 3rem;
 }
 
 h1, h2, h3 {
@@ -38,43 +38,6 @@ h1, h2, h3 {
 
 .hidden {
   display: none;
-}
-
-#interface {
-  padding: 10px;
-  display: none;
-}
-
-#header {
-  width: 100%;
-  margin-bottom: 0;
-  border-bottom: 2px solid #C1A57B;
-  padding-bottom: 0;
-}
-
-#header h1 {
-  text-align: left;
-  font-size: 3rem;
-  padding-bottom: 0;
-}
-
-#title {
-  margin-top: 0.75rem;
-}
-
-#title h3 {
-  text-align: right;
-  font-size: 3rem;
-  font-family: 'Roboto', sans-serif;
-  color: #ECECEC;
-  text-transform: uppercase;
-  text-shadow: 3px 3px 6px #222831;
-  margin: 0;
-}
-
-#header button {
-  float: left;
-  margin-top: 10px;
 }
 
 .uk-header {
