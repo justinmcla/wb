@@ -51,6 +51,11 @@ h1, h2, h3 {
   font-family: 'Roboto', sans-serif;
 }
 
+#side p {
+  color: #ECECEC;
+  text-align: justify;
+}
+
 .address-container {
   background-color: #ECECEC;
   color: #222831;
