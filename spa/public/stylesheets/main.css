@@ -45,6 +45,12 @@ h1, h2, h3 {
   float: left;
 }
 
+#pageName {
+  text-align: right;
+  color: #ECECEC;
+  font-family: 'Roboto', sans-serif;
+}
+
 .address-container {
   background-color: #ECECEC;
   color: #222831;
