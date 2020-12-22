@@ -1,0 +1,97 @@
+/*
+WORKBENCH
+
+Color Palette:
+  - PRIMARY:    #222831 (slate black)
+  - SECONDARY:  #30475E (muted royal blue)
+  - TERTIARY:   #C1A57B (tan)
+  - ACCENT:     #ECECEC (off-white)
+
+*/
+
+html, body {
+  background-color: #30475E;
+  height: 100%;
+  font-family: 'Roboto', sans-serif;
+}
+
+main {
+  width: 75%;
+}
+
+h1, h2, h3 {
+  color: #C1A57B;
+  text-align: center;
+  font-size: 5rem;
+  font-family: 'Jacques Francois', Georgia, 'Times New Roman', Times, serif;
+}
+
+.address-container {
+  background-color: #ECECEC;
+  color: #222831;
+  box-shadow: 3px 3px 6px #222831;
+}
+
+.uk-form-label {
+  color: #ECECEC;
+}
+
+.hidden {
+  display: none;
+}
+
+#interface {
+  padding: 10px;
+  display: none;
+}
+
+#header {
+  width: 100%;
+  margin-bottom: 0;
+  border-bottom: 2px solid #C1A57B;
+  padding-bottom: 0;
+}
+
+#header h1 {
+  text-align: left;
+  font-size: 3rem;
+  padding-bottom: 0;
+}
+
+#title {
+  margin-top: 0.75rem;
+}
+
+#title h3 {
+  text-align: right;
+  font-size: 3rem;
+  font-family: 'Roboto', sans-serif;
+  color: #ECECEC;
+  text-transform: uppercase;
+  text-shadow: 3px 3px 6px #222831;
+  margin: 0;
+}
+
+#header button {
+  float: left;
+  margin-top: 10px;
+}
+
+.uk-header {
+  text-shadow: 3px 3px 6px #222831;
+  font-family: 'Jacques Francois';
+}
+
+.uk-header:hover {
+  cursor: default;
+}
+
+.uk-button {
+  background-color: #ECECEC;
+  color: #222831;
+  box-shadow: 3px 3px 6px #222831;
+}
+
+.uk-button:active {
+  transform: translateY(1px);
+}
