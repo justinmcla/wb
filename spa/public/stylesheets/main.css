@@ -41,6 +41,10 @@ h1, h2, h3 {
   margin: 1rem auto;
 }
 
+#title {
+  float: left;
+}
+
 .address-container {
   background-color: #ECECEC;
   color: #222831;
