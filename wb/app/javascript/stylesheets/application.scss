@@ -1,0 +1,13 @@
+// Custom UIkit variables
+@import 'theme/fonts.scss';
+@import 'theme/variables.scss';
+
+// Default variables and mixins
+@import 'uikit/src/scss/variables-theme.scss';
+@import 'uikit/src/scss/mixins-theme.scss';
+
+// Custom mixins
+@import 'theme/mixins.scss';
+
+// UIkit
+@import 'uikit/src/scss/uikit-theme.scss';
