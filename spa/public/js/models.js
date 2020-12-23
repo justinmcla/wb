@@ -38,6 +38,12 @@ class Floor {
     const whitelist = ['id', 'number', 'facility_id']
     whitelist.forEach(attr => this[attr] = attributes[attr])
   }
+  render() {
+    this.element ||= document.createElement('option')
+    this.element.value = this.id
+    this.element.innerHTML = this.number
+    return this.element // <option id = '#' value = '#'>#</option>
+  }
 }
 
 class Room {
