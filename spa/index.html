@@ -17,8 +17,8 @@
       <h1 id = 'title' class = 'uk-header'>Workbench</h1>
       <h2 id = 'pageName' class = 'uk-header'>NEW WORK ORDER</h2>
     </header>
-    <main uk-grid>
-      <section id = 'main' class = 'uk-section-default uk-width-1-2 uk-animation-slide-left'>
+    <main uk-grid class = 'uk-flex uk-flex-wrap-reverse'>
+      <section id = 'main' class = 'uk-section-default uk-width-1-2@s uk-animation-slide-left'>
         <form uk-grid>
           <div class = 'uk-width-1-1'>
             <label for = 'facilityName' class = 'uk-form-label'>Facility Name</label>
@@ -67,7 +67,7 @@
           </div>
         </form>
       </section>
-      <section id = 'side' class = 'uk-section-default uk-width-1-2 uk-animation-slide-right'>
+      <section id = 'side' class = 'uk-section-default uk-width-1-2@s uk-animation-slide-right'>
         <h3 class = 'uk-header'>Instructions</h3>
         <p>To submit a work order for a publicly-owned facility, start by typing in the name
           of the facility in the "Facility Name" field to the left. Then select the floor and room
@@ -76,10 +76,10 @@
         <p>If you were provided a Facility Code by your property manager, submit it below before
           submitting a work order.</p>
         <form uk-grid>
-          <div class = 'uk-width-1-2'>
+          <div class = 'uk-width-1-2@s'>
             <input type = 'text' class = 'uk-input' id = 'facilityCode'>
           </div>
-          <div class = 'uk-width-1-2'>
+          <div class = 'uk-width-1-2@s'>
             <button type = 'button' class = 'uk-button' id = 'submitFacilityCode'>Enter Code</button>
           </div>
         </form>
