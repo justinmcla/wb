@@ -29,3 +29,12 @@ document.addEventListener('input', e => {
     }
   }
 })
+
+document.addEventListener('change', e => {
+  if (e.target.matches('#floorNumbers')) {
+    console.log(e.target.value);
+    const floorId = e.target.id
+    const floor = Floor.findById(floorId)
+    UI.loadFloorRooms(floor)
+  }
+})
