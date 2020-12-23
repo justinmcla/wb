@@ -13,12 +13,12 @@ document.addEventListener('input', e => {
     }
     if (selected) {
       document.querySelector('#instructions').hidden = true
-      let address = Facility.findById(selected.id).address.render();
-      const addressCard = UI.newCard()
-      addressCard.id = 'facilityAddress'
-      addressCard.append(...address)
-      let side = document.querySelector('#side')
-      side.appendChild(addressCard)
+      const facility = Facility.findById(selected.id)
+      UI.renderFacilityCard(facility)
+      UI.loadFacilityFloors(facility)
+      const floorId = document.querySelector('#floorNumbers').value
+      const floor = Floor.findById(floorId)
+      UI.loadFloorRooms(floor)
     } else {
       document.querySelector('#instructions').hidden = false;
       document.querySelectorAll('#facilityAddress').forEach( e => e.remove())
