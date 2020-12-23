@@ -38,6 +38,11 @@ class Floor {
     const whitelist = ['id', 'number', 'facility_id']
     whitelist.forEach(attr => this[attr] = attributes[attr])
   }
+
+  static findById(id) {
+    return this.collection.find(floor => floor.id == id)
+  }
+
   render() {
     this.element ||= document.createElement('option')
     this.element.value = this.id
