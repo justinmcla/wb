@@ -22,6 +22,10 @@ document.addEventListener('input', e => {
     } else {
       document.querySelector('#instructions').hidden = false;
       document.querySelectorAll('#facilityAddress').forEach( e => e.remove())
+      const floorNumbers = document.querySelector('#floorNumbers')
+      while(floorNumbers.firstChild) {
+        floorNumbers.removeChild(floorNumbers.lastChild);
+      }
     }
   }
 })
