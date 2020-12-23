@@ -19,6 +19,12 @@ body {
   margin-top: 3rem;
 }
 
+@media screen and (max-width: 600px) {
+  body {
+    margin-top: 0rem;
+  }
+}
+
 h1, h2, h3 {
   color: #C1A57B;
   font-family: 'Jacques Francois', Georgia, 'Times New Roman', Times, serif;
