@@ -4,4 +4,6 @@ class Facility < ApplicationRecord
   has_one :address, as: :addressable
   has_many :emails, as: :emailable
   has_many :phones, as: :phoneable
+
+  scope :public_records, -> { where(private: false) }
 end
