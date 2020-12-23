@@ -1,4 +1,10 @@
 class Component {
+  static wrapContent(innerContent, outerTag) {
+    const outer = document.createElement(outerTag);
+    outer.innerHTML = innerContent;
+    return outer;
+  }
+
   static newCard() {
     const card = document.createElement('div');
     card.classList.add(...['uk-card', 'uk-card-body', 'uk-card-default']);
