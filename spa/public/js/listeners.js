@@ -13,14 +13,15 @@ document.addEventListener('input', e => {
     }
     if (selected) {
       document.querySelector('#instructions').hidden = true
-      let address = Facility.findById(selected.id).address;
-      address.element = address.render();
+      let address = Facility.findById(selected.id).address.render();
+      const addressCard = UI.newCard()
+      addressCard.id = 'facilityAddress'
+      addressCard.append(...address)
       let side = document.querySelector('#side')
-      side.appendChild(address.element)
+      side.appendChild(addressCard)
     } else {
       document.querySelector('#instructions').hidden = false;
       document.querySelectorAll('#facilityAddress').forEach( e => e.remove())
     }
   }
 })
-
