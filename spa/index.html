@@ -59,11 +59,11 @@
             <label for = 'description' class = 'uk-form-label'>Description</label>
             <textarea id = 'description' class = 'uk-textarea' rows = '5'></textarea>
           </div>
-          <div uk-form-custom = 'target: true' class = 'uk-width-1-1'>
-            <label for 'imageUpload' class = 'uk-form-label'>Upload Images</label><br>
-            <input id = 'imageUpload' type = 'file' multiple>
-            <input class = 'uk-input uk-form-width-medium' type = 'text' placeholder = 'Select file' disabled>
-            <button class = 'uk-button uk-button-default'>Upload</button>
+          <div class = 'uk-width-1-1'>
+            <div uk-form-custom = 'target: true'>
+              <input type = 'file' multiple>
+              <button class = 'uk-button uk-button-default' type = 'button' tabindex = '-1'>Upload Images</button>
+            </div>
           </div>
         </form>
       </section>
