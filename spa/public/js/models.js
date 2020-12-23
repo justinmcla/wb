@@ -5,6 +5,10 @@ class Facility {
     this['address'] = new Address(attributes['address'])
   }
 
+  static datalist() {
+    return this.list ||= document.querySelector('#facilities')
+  }
+
   }
 }
 
