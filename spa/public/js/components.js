@@ -11,4 +11,11 @@ class Component {
     return card;
   }
 
+  static newImage(source, alt) {
+    const img = document.createElement('img');
+    img.setAttribute('data-src', source);
+    img.setAttribute('alt', alt)
+    return img;
+  }
+
 }
