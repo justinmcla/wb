@@ -9,6 +9,18 @@ class Facility {
     return this.list ||= document.querySelector('#facilities')
   }
 
+  static all() {
+    return fetch('http://localhost:3000/api/v1/facilities')
+    .then(res => res.json())
+    .then(facilitiesJson => {
+      this.collection = facilitiesJson.map(attr => new Facility(attr))
+      console.log(this.collection)
+      let facilityNames = this.collection.map(facility => facility.render())
+      this.datalist().append(...facilityNames)
+      return this.collection
+    })
+  }
+
   }
 }
 
