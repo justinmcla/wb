@@ -7,4 +7,11 @@ class UI {
     const side = document.querySelector('#side')
     side.appendChild(addressCard)
   }
+
+  static loadFacilityFloors(facility) {
+    const floorNumbers = document.querySelector('#floorNumbers')
+    const floors = facility.floors
+    floors.forEach( floor => floorNumbers.appendChild(floor.render()) )
+  }
+
 }
