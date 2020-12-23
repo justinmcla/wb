@@ -52,4 +52,32 @@ class Address {
     let whitelist = ['line_1', 'line_2', 'city', 'state', 'zip', 'addressable_id', 'addressable_type']
     whitelist.forEach(attr => this[attr] = attributes[attr])
   }
+
+  render() {
+    this.element = document.createElement('div')
+    this.element.classList.add(...['uk-card', 'uk-card-body', 'uk-card-default'])
+
+    let lines = []
+
+    let lineOne = document.createElement('span')
+    lineOne.textContent = this.line_1
+    lines.push(lineOne)
+    lines.push(document.createElement('br'))
+
+    if (this['line_2']) {
+      let lineTwo = document.createElement('span')
+      lineTwo.textContent = this.line_2
+      lines.push(lineTwo)
+      lines.push(document.createElement('br'))
+    }
+
+    let lineThree = document.createElement('span')
+    lineThree.textContent = `${this.city}, ${this.state} ${this.zip}`
+    lines.push(lineThree)
+    lines.push(document.createElement('br'))
+
+    this.element.append(...lines)
+    this.element.id = 'facilityAddress'
+    return this.element
+  }
 }
