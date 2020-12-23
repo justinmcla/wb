@@ -2,6 +2,9 @@ class Facility {
   constructor(attributes) {
     let whitelist = ['id', 'name', 'private']
     whitelist.forEach(attr => this[attr] = attributes[attr])
+    this['address'] = new Address(attributes['address'])
+  }
+
   }
 }
 
