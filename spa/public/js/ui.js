@@ -15,8 +15,8 @@ class UI {
   }
   //
   static loadFloorRooms(id) {
+    const rooms = Room.collection.filter( r => r.floor_id == id )
     const roomNames = document.querySelector('#roomNames')
-    const rooms = floor.rooms
     rooms.forEach( room => roomNames.appendChild(room.render()) )
   }
 }
