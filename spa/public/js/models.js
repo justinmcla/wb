@@ -19,9 +19,7 @@ class Facility {
     .then(res => res.json())
     .then(facilitiesJson => {
       this.collection = facilitiesJson.map(attr => new Facility(attr))
-      console.log(this.collection)
-      let facilityNames = this.collection.map(facility => facility.render())
-      this.datalist().append(...facilityNames)
+      this.load();
       return this.collection
     })
   }
