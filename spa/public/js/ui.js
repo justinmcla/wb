@@ -13,8 +13,8 @@ class UI {
     const floorNumbers = document.querySelector('#floorNumbers')
     floors.forEach( floor => floorNumbers.appendChild(floor.render()) )
   }
-
-  static loadFloorRooms(floor) {
+  //
+  static loadFloorRooms(id) {
     const roomNames = document.querySelector('#roomNames')
     const rooms = floor.rooms
     rooms.forEach( room => roomNames.appendChild(room.render()) )
