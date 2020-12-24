@@ -29,6 +29,9 @@ document.addEventListener('input', e => {
       while(floorNumbers.firstChild) {
         floorNumbers.removeChild(floorNumbers.lastChild);
       }
+      while(roomNames.firstChild) {
+        roomNames.removeChild(roomNames.lastChild);
+      }
     }
   }
 })
