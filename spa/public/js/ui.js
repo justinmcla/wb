@@ -9,8 +9,8 @@ class UI {
   }
 
   static loadFloorsByFacilityId(id) {
+    const floors = Floor.collection.filter( f => f.facility_id == id )
     const floorNumbers = document.querySelector('#floorNumbers')
-    const floors = facility.floors
     floors.forEach( floor => floorNumbers.appendChild(floor.render()) )
   }
 
