@@ -18,7 +18,7 @@ document.addEventListener('input', e => {
       document.querySelector('#instructions').hidden = true
       const facility = Facility.findById(selected.id)
       UI.renderFacilityCard(facility)
-      UI.loadFacilityFloors(facility)
+      UI.loadFloorsByFacilityId(facility.id)
       const floorId = document.querySelector('#floorNumbers').value
       const floor = Floor.findById(floorId)
       UI.loadFloorRooms(floor)
