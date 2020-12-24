@@ -5,7 +5,7 @@ class Facility {
   }
 
   static datalist() {
-    return this.list ||= document.querySelector('#facilities')
+    return document.querySelector('#facilities')
   }
 
   static all() {
