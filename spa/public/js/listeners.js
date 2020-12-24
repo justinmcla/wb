@@ -1,5 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
   Facility.all();
+  Address.all();
+  Floor.all();
+  Room.all();
 })
 
 document.addEventListener('input', e => {
