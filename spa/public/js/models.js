@@ -69,6 +69,15 @@ class Room {
     whitelist.forEach(attr => this[attr] = attributes[attr])
   }
 
+  static all() {
+    return fetch('http://localhost:3000/api/v1/rooms')
+    .then(res => res.json())
+    .then(rooms => {
+      this.collection = rooms.map(attr => new Room(attr))
+      return this.collection
+    })
+  }
+
   render() {
     this.element ||= document.createElement('option')
     this.element.value = this.id
