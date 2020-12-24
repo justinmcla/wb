@@ -42,6 +42,15 @@ class Floor {
     whitelist.forEach(attr => this[attr] = attributes[attr])
   }
 
+  static all() {
+    return fetch('http://localhost:3000/api/v1/floors')
+    .then(res => res.json())
+    .then(floorsJson => {
+      this.collection = floorsJson.map(attr => new Floor(attr))
+      return this.collection
+    })
+  }
+
   static findById(id) {
     return this.collection.find(floor => floor.id == id)
   }
