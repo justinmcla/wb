@@ -8,6 +8,12 @@ class Facility {
     return document.querySelector('#facilities')
   }
 
+  static load() {
+    this.collection.forEach( facility => {
+      this.datalist().appendChild(facility.render())
+    })
+  }
+
   static all() {
     return fetch('http://localhost:3000/api/v1/facilities')
     .then(res => res.json())
