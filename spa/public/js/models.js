@@ -91,7 +91,7 @@ class Room {
 
 class Address {
   constructor(attributes) {
-    const whitelist = ['line_1', 'line_2', 'city', 'state', 'zip', 'addressable_id', 'addressable_type']
+    const whitelist = ['id', 'line_1', 'line_2', 'city', 'state', 'zip', 'addressable_id', 'addressable_type']
     whitelist.forEach(attr => this[attr] = attributes[attr])
   }
 
