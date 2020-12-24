@@ -33,14 +33,12 @@ document.addEventListener('input', e => {
         roomNames.removeChild(roomNames.lastChild);
       }
     }
-  }
-})
-
-document.addEventListener('change', e => {
-  if (e.target.matches('#floorNumbers')) {
-    console.log(e.target.value);
-    const floorId = e.target.id
-    const floor = Floor.findById(floorId)
-    UI.loadFloorRooms(floor)
+  } else if (e.target.matches('#floorNumbers')) {
+    const roomNames = document.querySelector('#roomNames')
+    while(roomNames.firstChild) {
+      roomNames.removeChild(roomNames.lastChild);
+    }
+    const floorId = e.target.value
+    UI.loadFloorRooms(floorId)
   }
 })
