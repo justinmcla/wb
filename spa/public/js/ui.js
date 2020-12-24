@@ -1,6 +1,6 @@
 class UI {
   static renderFacilityCard(facility) {
-    const address = facility.address.render();
+    const address = Address.collection.find( a => a.addressable_id == facility.id).render();
     const addressCard = Component.newCard()
     addressCard.id = 'facilityAddress'
     addressCard.append(...address)
