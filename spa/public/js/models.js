@@ -95,6 +95,15 @@ class Address {
     whitelist.forEach(attr => this[attr] = attributes[attr])
   }
 
+  static all() {
+    return fetch('http://localhost:3000/api/v1/addresses')
+      .then(res => res.json())
+      .then(addresses => {
+        this.collection = addresses.map( e => new Address(e) )
+        return this.collection
+      })
+  }
+
   render() {
     let lines = []
 
