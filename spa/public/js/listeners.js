@@ -39,5 +39,15 @@ document.addEventListener('input', e => {
     }
     const floorId = e.target.value
     UI.loadFloorRooms(floorId)
+  } else if (e.target.matches('#imageUpload')) {
+    const indicator = document.querySelector('#fileList')
+    if (e.target.files.length > 1) {
+      indicator.innerHTML = `${e.target.files.length} images selected`;
+    } else {
+      indicator.innerHTML = `${e.target.files.length} image selected`;
+    }
+  }
+})
+
   }
 })
