@@ -18,10 +18,12 @@ document.addEventListener('input', e => {
       document.querySelector('#instructions').hidden = true
       const facility = Facility.findById(selected.id)
       UI.renderFacilityCard(facility)
+      document.querySelector('#resetForm').hidden = false
       UI.loadFloorsByFacilityId(facility.id)
       const floorId = document.querySelector('#floorNumbers').value
       UI.loadFloorRooms(floorId)
     } else {
+      document.querySelector('#resetForm').hidden = true
       document.querySelector('#instructions').hidden = false;
       document.querySelectorAll('#facilityAddress').forEach( e => e.remove())
       const floorNumbers = document.querySelector('#floorNumbers')
