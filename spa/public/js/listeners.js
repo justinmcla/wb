@@ -93,8 +93,10 @@ document.addEventListener('click', e => {
     facilityCode.value = ''
 
     document.querySelector('#instructions').hidden = false
+    document.querySelector('#imageUpload').value = ''
     document.querySelector('#resetForm').hidden = true
     document.querySelector('#facilityAddress').remove()
+    document.querySelector('#fileList').innerHTML = ''
     facilityName.disabled = false
     floorNumbers.disabled = false
     roomNames.disabled = false
