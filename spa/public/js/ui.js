@@ -19,4 +19,50 @@ class UI {
     const roomNames = document.querySelector('#roomNames')
     rooms.forEach( room => roomNames.appendChild(room.render()) )
   }
+
+  static handleFacilityCodeSubmission(responseJson) {
+    const facility = new Facility(responseJson.facility)
+    Facility.collection.push(facility)
+    const floor = new Floor(responseJson.floor)
+    Floor.collection.push(floor)
+    const address = new Address(responseJson.address)
+    Address.collection.push(address)
+    const options = {
+      id: responseJson.id,
+      name: responseJson.name,
+      facility_id: responseJson.facility.id,
+      floor_id: responseJson.floor.id
+    }
+    const room = new Room(options)
+
+    const facilityName = document.querySelector('#facilityName')
+    const roomNames = document.querySelector('#roomNames')
+    const floorNumbers = document.querySelector('#floorNumbers')
+
+    while(roomNames.firstChild) {
+      roomNames.removeChild(roomNames.lastChild);
+    }
+    while(floorNumbers.firstChild) {
+      floorNumbers.removeChild(floorNumbers.lastChild)
+    }
+
+
+    document.querySelector('#submitFacilityCode').hidden = true
+    document.querySelector('#facilityCode').disabled = true
+    document.querySelector('#resetForm').hidden = false
+    document.querySelector('#facilityName').value = facility.name
+    document.querySelector('#instructions').hidden = true
+    UI.renderFacilityCard(facility)
+    facilityName.value = facility.name
+    facilityName.disabled = true
+    floorNumbers.appendChild(floor.render())
+    floorNumbers.children.namedItem(floor.id).setAttribute('selected', '')
+    floorNumbers.disabled = true
+    roomNames.appendChild(room.render())
+    roomNames.children.namedItem(room.id).setAttribute('selected', '')
+    roomNames.disabled = true
+
+
+
+  }
 }
