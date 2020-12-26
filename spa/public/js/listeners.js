@@ -72,5 +72,34 @@ document.addEventListener('click', e => {
         console.log(json);
         UI.handleFacilityCodeSubmission(json);
       })
+  } else if (e.target.matches('#resetForm')) {
+    const facilityName = document.querySelector('#facilityName')
+    const floorNumbers = document.querySelector('#floorNumbers')
+    const roomNames = document.querySelector('#roomNames')
+    const discipline = document.querySelector('#disciplines')
+    const description = document.querySelector('#description')
+    const facilityCode = document.querySelector('#facilityCode')
+
+
+    facilityName.value = ''
+    while(floorNumbers.firstChild) {
+      floorNumbers.removeChild(floorNumbers.lastChild);
+    }
+    while(roomNames.firstChild) {
+      roomNames.removeChild(roomNames.lastChild);
+    }
+    discipline.value = 'Carpentry'
+    description.value = ''
+    facilityCode.value = ''
+
+    document.querySelector('#instructions').hidden = false
+    document.querySelector('#resetForm').hidden = true
+    document.querySelector('#facilityAddress').remove()
+    facilityName.disabled = false
+    floorNumbers.disabled = false
+    roomNames.disabled = false
+    document.querySelector('#facilityCode').disabled = false
+    document.querySelector('#submitFacilityCode').hidden = false
+
   }
 })
