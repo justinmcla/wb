@@ -51,5 +51,26 @@ document.addEventListener('input', e => {
   }
 })
 
+document.addEventListener('click', e => {
+  if (e.target.matches('#submitFacilityCode')) {
+    e.preventDefault();
+    const code = document.querySelector('#facilityCode').value
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        'code': code
+      })
+    }
+
+    fetch('http://localhost:3000/api/v1/rooms', options)
+      .then(response => response.json())
+      .then(json => {
+        console.log(json);
+        UI.handleFacilityCodeSubmission(json);
+      })
   }
 })
