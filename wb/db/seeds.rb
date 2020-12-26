@@ -68,6 +68,7 @@ Facility.all.each do |f|
   create_facility_address f unless f.address != nil
 end
 
+# Creates an AID for each room to be used as a default facility code.
 Room.all.each do |r|
   r.aid = SecureRandom.hex(4)
   r.save
