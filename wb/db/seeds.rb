@@ -67,3 +67,8 @@ Facility.all.each do |f|
   create_floors_and_rooms f unless f.floors.count > 0
   create_facility_address f unless f.address != nil
 end
+
+Room.all.each do |r|
+  r.aid = SecureRandom.hex(4)
+  r.save
+end
