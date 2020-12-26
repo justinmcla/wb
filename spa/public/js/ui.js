@@ -5,7 +5,7 @@ class UI {
     addressCard.id = 'facilityAddress'
     addressCard.append(...address)
     const side = document.querySelector('#side')
-    side.appendChild(addressCard)
+    side.prepend(addressCard)
   }
 
   static loadFloorsByFacilityId(id) {
