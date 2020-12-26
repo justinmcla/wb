@@ -57,6 +57,7 @@ class Floor {
 
   render() {
     this.element ||= document.createElement('option')
+    this.element.id = this.id
     this.element.value = this.id
     this.element.innerHTML = this.number
     return this.element // <option id = '#' value = '#'>#</option>
