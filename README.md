@@ -39,10 +39,10 @@ All API requests are handled through the API namespace, and versioned to ensure 
 # config/routes.rb
 
 namespace :api do
-	namespace :v1 do
-		resources :facilities
-		# . . .
-	end
+  namespace :v1 do
+    resources :facilities
+  # . . .
+  end
 end
 ```
 
@@ -70,7 +70,7 @@ The Admin Console is built on Rails, and so it uses the built-in MVC model to re
 
 ##### Routes & Controllers
 
-All routing for the admin console is within the admin namespace. 
+All routing for the admin console is within the admin namespace.
 
 ```ruby
 # config/routes.rb
