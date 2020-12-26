@@ -29,6 +29,9 @@ gem 'rack-cors'
 # Use serializers to render JSON API
 gem 'fast_jsonapi'
 
+# Use Amazon S3 for direct file uploads
+gem 'aws-sdk-s3', require: false
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
