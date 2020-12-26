@@ -43,6 +43,8 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Use RSpec for testing
   gem 'rspec-rails', '~> 4.0.1'
+  # Use DotENV for storing local environment variables
+  gem 'dotenv-rails'
 end
 
 group :development do
