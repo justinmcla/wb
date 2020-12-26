@@ -6,7 +6,8 @@ local:
   service: Disk
   root: <%= Rails.root.join("storage") %>
 
-# Use rails credentials:edit to set the AWS secrets (as aws:access_key_id|secret_access_key)
+# Local environment variables are being used in lieu of the Rails key store.
+# Contact justin@devjwm.net to set up AWS IAM credentials for S3 access.
 
 amazon:
   service: S3
