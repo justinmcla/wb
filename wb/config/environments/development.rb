@@ -69,4 +69,8 @@ Rails.application.configure do
         methods: %i[get post put patch delete options head]
     end
   end
+
+  # Use Amazon S3 for direct file uploads
+  config.active_storage.service = :amazon
+
 end
