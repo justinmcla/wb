@@ -2,6 +2,7 @@ class Facility {
   constructor(attributes) {
     const whitelist = ['id', 'name', 'private']
     whitelist.forEach(attr => this[attr] = attributes[attr])
+    Facility.collection().push(this)
   }
 
   static datalist() {
@@ -17,10 +18,10 @@ class Facility {
   static all() {
     return fetch('http://localhost:3000/api/v1/facilities')
     .then(res => res.json())
-    .then(facilitiesJson => {
-      this.collection = facilitiesJson.map(attr => new Facility(attr))
-      this.load();
-      return this.collection
+    .then(facilities => {
+      facilities.forEach(attr => new Facility(attr))
+      this.load()
+      return this.collection()
     })
   }
 
@@ -40,14 +41,15 @@ class Floor {
   constructor(attributes) {
     const whitelist = ['id', 'number', 'facility_id']
     whitelist.forEach(attr => this[attr] = attributes[attr])
+    Floor.collection().push(this)
   }
 
   static all() {
     return fetch('http://localhost:3000/api/v1/floors')
     .then(res => res.json())
-    .then(floorsJson => {
-      this.collection = floorsJson.map(attr => new Floor(attr))
-      return this.collection
+    .then(floors => {
+      floors.forEach(attr => new Floor(attr))
+      return this.collection()
     })
   }
 
@@ -68,14 +70,15 @@ class Room {
   constructor(attributes) {
     const whitelist = ['id', 'name', 'floor_id', 'facility_id']
     whitelist.forEach(attr => this[attr] = attributes[attr])
+    Room.collection().push(this)
   }
 
   static all() {
     return fetch('http://localhost:3000/api/v1/rooms')
     .then(res => res.json())
     .then(rooms => {
-      this.collection = rooms.map(attr => new Room(attr))
-      return this.collection
+      rooms.forEach(attr => new Room(attr))
+      return this.collection()
     })
   }
 
@@ -101,8 +104,8 @@ class Address {
     return fetch('http://localhost:3000/api/v1/addresses')
       .then(res => res.json())
       .then(addresses => {
-        this.collection = addresses.map( e => new Address(e) )
-        return this.collection
+        addresses.forEach(attr => new Address(attr))
+        return this.collection()
       })
   }
 
