@@ -72,8 +72,6 @@ class UI {
     Room.container().disabled = true
   }
 
-    while(roomNames.firstChild) {
-      roomNames.removeChild(roomNames.lastChild);
   static facilityName() {
     return document.querySelector('#facilityName')
   }
@@ -82,8 +80,8 @@ class UI {
     while(Floor.container().firstChild) {
       Floor.container().removeChild(Floor.container().lastChild)
     }
-    while(floorNumbers.firstChild) {
-      floorNumbers.removeChild(floorNumbers.lastChild)
+  }
+
   static clearRoomNames() {
     while(Room.container().firstChild) {
       Room.container().removeChild(Room.container().lastChild)
