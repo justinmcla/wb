@@ -38,23 +38,39 @@ class UI {
   }
 
   static handleFacilityCodeSubmission(responseJson) {
-    const facility = new Facility(responseJson.facility)
-    Facility.collection.push(facility)
-    const floor = new Floor(responseJson.floor)
-    Floor.collection.push(floor)
-    const address = new Address(responseJson.address)
-    Address.collection.push(address)
-    const options = {
-      id: responseJson.id,
-      name: responseJson.name,
-      facility_id: responseJson.facility.id,
-      floor_id: responseJson.floor.id
-    }
-    const room = new Room(options)
 
-    const facilityName = document.querySelector('#facilityName')
-    const roomNames = document.querySelector('#roomNames')
-    const floorNumbers = document.querySelector('#floorNumbers')
+    // Create new objs based on response
+
+    const facility = new Facility(responseJson.facility)
+    const floor    = new Floor(responseJson.floor)
+    const address  = new Address(responseJson.address)
+    const room     = new Room(responseJson)
+
+    // Hide instructions, disable all pre-loaded form fields, show reset button
+
+    UI.clearFloorNumbers()
+    UI.clearRoomNames()
+    UI.facilityCodeButton().hidden = true
+    UI.facilityCode().disabled = true
+    UI.facilityCodeButton().hidden = false
+    UI.facilityName().value = facility.name
+    UI.instructions().hidden = true
+    UI.renderFacilityCard(facility)
+    UI.resetButton().hidden = false
+
+    // Load form data based on created objs
+
+    UI.facilityName().value = facility.name
+    UI.facilityName().disabled = true
+
+    Floor.container().appendChild(floor.render())
+    Floor.container().children.namedItem(floor.id).setAttribute('selected', '')
+    Floor.container().disabled = true
+
+    Room.container().appendChild(room.render())
+    Room.container().children.namedItem(room.id).setAttribute('selected', '')
+    Room.container().disabled = true
+  }
 
     while(roomNames.firstChild) {
       roomNames.removeChild(roomNames.lastChild);
