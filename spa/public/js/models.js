@@ -65,7 +65,7 @@ class Floor {
   }
 
   static findById(id) {
-    return this.collection.find(floor => floor.id == id)
+    return this.collection().find(floor => floor.id == id)
   }
 
   render() {
