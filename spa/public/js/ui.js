@@ -55,10 +55,17 @@ class UI {
     return document.querySelector('#facilityName')
   }
 
+  static clearFloorNumbers() {
+    while(Floor.container().firstChild) {
+      Floor.container().removeChild(Floor.container().lastChild)
     }
     while(floorNumbers.firstChild) {
       floorNumbers.removeChild(floorNumbers.lastChild)
+  static clearRoomNames() {
+    while(Room.container().firstChild) {
+      Room.container().removeChild(Room.container().lastChild)
     }
+  }
 
   static disciplines() {
     return document.querySelector('#disciplines')
