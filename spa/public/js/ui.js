@@ -92,20 +92,6 @@ class UI {
     return document.querySelector('#disciplines')
   }
 
-    document.querySelector('#submitFacilityCode').hidden = true
-    document.querySelector('#facilityCode').disabled = true
-    document.querySelector('#resetForm').hidden = false
-    document.querySelector('#facilityName').value = facility.name
-    document.querySelector('#instructions').hidden = true
-    UI.renderFacilityCard(facility)
-    facilityName.value = facility.name
-    facilityName.disabled = true
-    floorNumbers.appendChild(floor.render())
-    floorNumbers.children.namedItem(floor.id).setAttribute('selected', '')
-    floorNumbers.disabled = true
-    roomNames.appendChild(room.render())
-    roomNames.children.namedItem(room.id).setAttribute('selected', '')
-    roomNames.disabled = true
   static description() {
     return document.querySelector('#description')
   }
