@@ -145,7 +145,6 @@ class Address {
     return this.collection().find(address => address.addressable_id == id)
   }
 
-    return lines
   render() {
     if (this.element) {
       return this.element
