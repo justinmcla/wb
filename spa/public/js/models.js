@@ -48,6 +48,10 @@ class Floor {
     Floor.collection().push(this)
   }
 
+  static collection() {
+    return this.list ||= []
+  }
+
   static container() {
     return this.c ||= document.querySelector('#floorNumbers')
   }
@@ -87,6 +91,10 @@ class Room {
       rooms.forEach(attr => new Room(attr))
       return this.collection()
     })
+  }
+
+  static collection() {
+    return this.list ||= []
   }
 
   static container() {
@@ -134,6 +142,10 @@ class Address {
       lines.push(lineTwo)
       lines.push(document.createElement('br'))
     }
+  static collection() {
+    return this.list ||= []
+  }
+
   static container() {
     return this.c ||= document.querySelector('#facilityAddress')
   }
