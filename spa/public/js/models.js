@@ -10,8 +10,8 @@ class Facility {
   }
 
   static load() {
-    this.collection.forEach( facility => {
-      this.datalist().appendChild(facility.render())
+    this.collection().forEach( facility => {
+      this.container().appendChild(facility.render())
     })
   }
 
