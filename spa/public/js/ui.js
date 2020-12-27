@@ -17,6 +17,17 @@ class UI {
     const rooms = Room.collection().filter( r => r.floor_id == id )
     rooms.forEach( room => Room.container().appendChild(room.render()) )
   }
+
+  static facilityInput(e) {
+    const options = Facility.container().children
+    for (let i = 0; i < options.length; i++) {
+      if (options[i].value.toLowerCase() == e.target.value.toLowerCase()) {
+        return options[i]
+      }
+    }
+    return false
+  }
+
   }
 
   static handleFacilityCodeSubmission(responseJson) {
