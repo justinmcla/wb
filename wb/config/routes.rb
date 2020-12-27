@@ -16,4 +16,9 @@ Rails.application.routes.draw do
     get '/', to: 'admin#index'
   end
 
+  # AUTH
+  namespace :auth do
+    get '/google_oauth2/callback', to: 'google#create'
+    get '/microsoft_office365/callback', to: 'microsoft#create'
+  end
 end
