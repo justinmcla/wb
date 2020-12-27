@@ -101,6 +101,10 @@ class Room {
     return this.c ||= document.querySelector('#roomNames');
   }
 
+  static findById(id) {
+    return this.collection().find(room => room.id == id)
+  }
+
   render() {
     this.element ||= document.createElement('option')
     this.element.id = this.id
@@ -154,6 +158,9 @@ class Address {
     lineThree.textContent = `${this.city}, ${this.state} ${this.zip}`
     lines.push(lineThree)
     lines.push(document.createElement('br'))
+  static findByFacilityId(id) {
+    return this.collection().find(address => address.addressable_id == id)
+  }
 
     return lines
   }
