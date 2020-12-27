@@ -133,20 +133,6 @@ class Address {
       })
   }
 
-  render() {
-    let lines = []
-
-    const lineOne = document.createElement('span')
-    lineOne.textContent = this.line_1
-    lines.push(lineOne)
-    lines.push(document.createElement('br'))
-
-    if (this['line_2']) {
-      const lineTwo = document.createElement('span')
-      lineTwo.textContent = this.line_2
-      lines.push(lineTwo)
-      lines.push(document.createElement('br'))
-    }
   static collection() {
     return this.list ||= []
   }
@@ -155,14 +141,39 @@ class Address {
     return this.c ||= document.querySelector('#facilityAddress')
   }
 
-    const lineThree = document.createElement('span')
-    lineThree.textContent = `${this.city}, ${this.state} ${this.zip}`
-    lines.push(lineThree)
-    lines.push(document.createElement('br'))
   static findByFacilityId(id) {
     return this.collection().find(address => address.addressable_id == id)
   }
 
     return lines
+  render() {
+    if (this.element) {
+      return this.element
+    } else {
+      this.element ||= document.createElement('p')
+      this.element.id = this.id
+
+      const lineOne = document.createElement('span')
+      lineOne.textContent = this.line_1
+      this.element.append(lineOne, document.createElement('br'))
+
+      // Conditionally add second line if Address Line 2 exists
+      if (this['line_2']) {
+        const lineTwo = document.createElement('span')
+        lineTwo.textContent = this.line_2
+        this.element.append(lineTwo, document.createElement('br'))
+      }
+
+      const lineThree = document.createElement('span')
+      lineThree.textContent = `${this.city}, ${this.state} ${this.zip}`
+      this.element.append(lineThree, document.createElement('br'))
+
+      return this.element
+      // <p id = '#'>
+      //   Sample Address
+      //   Line 2
+      //   City, State Zip
+      // </p>
+    }
   }
 }
