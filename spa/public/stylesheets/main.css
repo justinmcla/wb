@@ -65,6 +65,10 @@ h1, h2, h3 {
   color: #ECECEC;
 }
 
+#facilityCard p {
+  color: #222831;
+}
+
 .address-container {
   background-color: #ECECEC;
   color: #222831;
