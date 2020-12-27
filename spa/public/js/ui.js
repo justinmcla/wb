@@ -124,7 +124,24 @@ class UI {
     return document.querySelector('#fileList')
   }
 
+  static resetAllFormFields() {
+    UI.facilityName().value = ''
+    UI.facilityName().disabled = false
+    UI.clearFloorNumbers()
+    Floor.container().disabled = false
+    UI.clearRoomNames()
+    Room.container().disabled = false
+    UI.disciplines().value = 'Carpentry'
+    UI.description().value = ''
+    UI.uploads().value = ''
 
+    UI.instructions().hidden = false
+    UI.resetButton().hidden = true
+    UI.facilityCodeButton().hidden = false
+    UI.facilityCode().value = ''
+    UI.facilityCode().disabled = false
 
+    UI.facilityCard().remove()
+    UI.fileIndicator().innerHTML = ''
   }
 }
