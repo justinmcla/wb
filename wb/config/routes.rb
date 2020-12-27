@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   # ADMIN CONSOLE
   namespace :admin do
     get '/', to: 'admin#index'
+    resources :sessions
   end
 
   # AUTH
