@@ -1,10 +1,10 @@
 class UI {
   static renderFacilityCard(facility) {
-    const address = Address.collection.find( a => a.addressable_id == facility.id).render();
-    const addressCard = Component.newCard()
-    addressCard.id = 'facilityAddress'
-    addressCard.append(...address)
-    const side = document.querySelector('#side')
+    const addressParagraph = Address.findByFacilityId(facility.id).render();
+    const addressCard      = Component.newCard()
+    addressCard.id         = 'facilityCard'
+    addressCard.appendChild(addressParagraph)
+    const side             = document.querySelector('#side')
     side.prepend(addressCard)
   }
 
