@@ -32,6 +32,11 @@ gem 'fast_jsonapi'
 # Use Amazon S3 for direct file uploads
 gem 'aws-sdk-s3', require: false
 
+# OAuth
+gem 'omniauth'
+gem 'omniauth-microsoft-office365'
+gem 'omniauth-google-oauth2'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
