@@ -5,8 +5,6 @@ class Facility {
     Facility.collection().push(this)
   }
 
-  static datalist() {
-    return document.querySelector('#facilities')
   static container() {
     return this.c ||= document.querySelector('#facilities')
   }
