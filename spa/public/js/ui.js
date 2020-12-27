@@ -14,9 +14,9 @@ class UI {
   }
 
   static loadFloorRooms(id) {
-    const rooms = Room.collection.filter( r => r.floor_id == id )
-    const roomNames = document.querySelector('#roomNames')
-    rooms.forEach( room => roomNames.appendChild(room.render()) )
+    const rooms = Room.collection().filter( r => r.floor_id == id )
+    rooms.forEach( room => Room.container().appendChild(room.render()) )
+  }
   }
 
   static handleFacilityCodeSubmission(responseJson) {
