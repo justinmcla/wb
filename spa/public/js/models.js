@@ -7,6 +7,8 @@ class Facility {
 
   static datalist() {
     return document.querySelector('#facilities')
+  static container() {
+    return this.c ||= document.querySelector('#facilities')
   }
 
   static load() {
@@ -44,6 +46,9 @@ class Floor {
     Floor.collection().push(this)
   }
 
+  static container() {
+    return this.c ||= document.querySelector('#floorNumbers')
+  }
   static all() {
     return fetch('http://localhost:3000/api/v1/floors')
     .then(res => res.json())
@@ -80,6 +85,10 @@ class Room {
       rooms.forEach(attr => new Room(attr))
       return this.collection()
     })
+  }
+
+  static container() {
+    return this.c ||= document.querySelector('#roomNames');
   }
 
   render() {
@@ -123,6 +132,9 @@ class Address {
       lines.push(lineTwo)
       lines.push(document.createElement('br'))
     }
+  static container() {
+    return this.c ||= document.querySelector('#facilityAddress')
+  }
 
     const lineThree = document.createElement('span')
     lineThree.textContent = `${this.city}, ${this.state} ${this.zip}`
