@@ -30,7 +30,7 @@ class Facility {
   }
 
   static findById(id) {
-    return this.collection.find(facility => facility.id == id)
+    return this.collection().find(facility => facility.id == id)
   }
 
   render() {
