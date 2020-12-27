@@ -40,11 +40,18 @@ class UI {
 
     while(roomNames.firstChild) {
       roomNames.removeChild(roomNames.lastChild);
+  static facilityName() {
+    return document.querySelector('#facilityName')
+  }
+
     }
     while(floorNumbers.firstChild) {
       floorNumbers.removeChild(floorNumbers.lastChild)
     }
 
+  static disciplines() {
+    return document.querySelector('#disciplines')
+  }
 
     document.querySelector('#submitFacilityCode').hidden = true
     document.querySelector('#facilityCode').disabled = true
@@ -60,6 +67,37 @@ class UI {
     roomNames.appendChild(room.render())
     roomNames.children.namedItem(room.id).setAttribute('selected', '')
     roomNames.disabled = true
+  static description() {
+    return document.querySelector('#description')
+  }
+
+  static uploads() {
+    return document.querySelector('#imageUpload')
+  }
+
+  static instructions() {
+    return document.querySelector('#instructions')
+  }
+
+  static resetButton() {
+    return document.querySelector('#resetForm')
+  }
+
+  static facilityCode() {
+    return document.querySelector('#facilityCode')
+  }
+
+  static facilityCodeButton() {
+    return document.querySelector('#submitFacilityCode')
+  }
+
+  static facilityCard() {
+    return document.querySelector('#facilityCard')
+  }
+
+  static fileIndicator() {
+    return document.querySelector('#fileList')
+  }
 
 
 
