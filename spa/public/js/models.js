@@ -15,6 +15,10 @@ class Facility {
     })
   }
 
+  static collection() {
+    return this.list ||= []
+  }
+
   static all() {
     return fetch('http://localhost:3000/api/v1/facilities')
     .then(res => res.json())
