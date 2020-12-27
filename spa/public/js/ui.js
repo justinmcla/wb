@@ -28,6 +28,13 @@ class UI {
     return false
   }
 
+  static handleFacilityInput(selectedFacility) {
+    const facility = Facility.findById(selectedFacility.id)
+    UI.instructions().hidden = true
+    UI.resetButton().hidden = false
+    UI.renderFacilityCard(facility)
+    UI.loadFloorsByFacilityId(facility.id)
+    UI.loadFloorRooms(Floor.container().value)
   }
 
   static handleFacilityCodeSubmission(responseJson) {
