@@ -1,0 +1,7 @@
+<%= form_with model: @user, url: path, method: 'post', local: true do |f| %>
+  <%= render partial: 'shared/forms/email', locals: { f: f } %>
+  <br>
+  <%= render partial: 'shared/forms/password', locals: { f: f } %>
+  <br>
+  <%= render partial: 'shared/forms/submit', locals: { f: f, value: submit_text } %>
+<% end %>
