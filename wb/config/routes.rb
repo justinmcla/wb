@@ -14,12 +14,10 @@ Rails.application.routes.draw do
   # ADMIN CONSOLE
   namespace :admin do
     get '/', to: 'admin#index'
-    resources :sessions
+    get '/login', to: 'sessions#new'
+    post '/login', to: 'sessions#create'
+    delete '/logout', to: 'sessions#destroy'
+    resources :users, only: [:create]
   end
 
-  # AUTH
-  namespace :auth do
-    get '/google_oauth2/callback', to: 'google#create'
-    get '/microsoft_office365/callback', to: 'microsoft#create'
-  end
 end
