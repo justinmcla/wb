@@ -14,5 +14,26 @@ class Admin::SessionsController < ApplicationController
     redirect_to admin_login_path
   end
 
+  private
+
+  def log_in user
+    session[:user_id] = user.id
+  end
+
+  def strong_params
+    params.permit(:email, :password)
+  end
+
+  def email
+    strong_params[:email]
+  end
+
+  def password
+    strong_params[:password]
+  end
+
+  def deny_with_alert
+    flash[:alert] = 'Invalid Credentials.'
+    render :new
   end
 end
