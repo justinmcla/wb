@@ -1,0 +1,17 @@
+<div class = 'uk-position-center'>
+  <h1 class = 'uk-heading uk-text-center'>Workbench</h1>
+  <div class = 'uk-text-right'><%= flash[:alert] if flash[:alert] %></div>
+  <ul uk-accordion = 'collapsible: false;' class = 'uk-width-1-1'>
+    <li>
+      <a class = 'uk-accordion-title' href = '#'>Log In</a>
+      <div class = 'uk-accordion-content'>
+        <%= render partial: 'login_form', locals: { path: admin_login_path, submit_text: 'Log In' } %>
+      </div>
+    </li>
+    <li>
+      <a class = 'uk-accordion-title' href = '#'>Sign Up</a>
+      <div class = 'uk-accordion-content'>
+        <%= render partial: 'signup_form', locals: { path: admin_users_path, submit_text: 'Sign Up' } %>
+      </div>
+  </ul>
+</div>
