@@ -1,8 +1,9 @@
 class UI {
-  static renderFacilityCard(facility) {
+  static renderFacilityCard(facility, image) {
     const addressParagraph = Address.findByFacilityId(facility.id).render();
     const addressCard      = Component.newCard()
     addressCard.id         = 'facilityCard'
+    if (image) { addressCard.appendChild(image) }
     addressCard.appendChild(addressParagraph)
     const side             = document.querySelector('#side')
     side.prepend(addressCard)
@@ -45,6 +46,7 @@ class UI {
     const floor    = new Floor(responseJson.floor)
     const address  = new Address(responseJson.address)
     const room     = new Room(responseJson)
+    const image    = Component.newImage(responseJson.image, 'Some Image')
 
     // Hide instructions, disable all pre-loaded form fields, show reset button
 
@@ -55,7 +57,7 @@ class UI {
     UI.facilityCodeButton().hidden = false
     UI.facilityName().value = facility.name
     UI.instructions().hidden = true
-    UI.renderFacilityCard(facility)
+    UI.renderFacilityCard(facility, image)
     UI.resetButton().hidden = false
 
     // Load form data based on created objs
