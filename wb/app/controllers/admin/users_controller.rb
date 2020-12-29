@@ -16,7 +16,6 @@ class Admin::UsersController < ApplicationController
   end
 
   def deny_with_alert
-    flash[:alert] = 'Sign up failed.'
-    redirect_to admin_login_path
+    redirect_to admin_login_path, alert: 'Sign up failed.'
   end
 end
