@@ -15,7 +15,7 @@ UI.facilityName().addEventListener('input', e => {
     UI.facilityCard().remove()
     UI.clearFloorNumbers()
     UI.clearRoomNames()
-    UI.resetAllFormFacilityFields()
+    UI.resetAllFormFields()
   }
 })
 
