@@ -32,7 +32,7 @@ UI.uploads().addEventListener('input', e => {
   }
 })
 
-UI.facilityCodeButton().addEventListener('click', e => {
+UI.facilityCodeForm().addEventListener('submit', e => {
   e.preventDefault();
   const code = document.querySelector('#facilityCode').value
   const options = {
