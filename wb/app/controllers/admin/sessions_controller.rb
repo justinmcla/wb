@@ -21,7 +21,7 @@ class Admin::SessionsController < ApplicationController
   end
 
   def strong_params
-    params.permit(:email, :password)
+    params.require(:user).permit(:email, :password)
   end
 
   def email
