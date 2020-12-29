@@ -13,6 +13,7 @@
   </head>
 
   <body class = 'uk-container'>
+    <%= render partial: 'layouts/nav' if current_user %>
     <%= yield %>
   </body>
 </html>
