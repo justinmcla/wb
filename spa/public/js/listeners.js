@@ -46,7 +46,7 @@ UI.facilityCodeForm().addEventListener('submit', e => {
     })
   }
 
-  fetch('http://localhost:3000/api/v1/rooms', options)
+  fetch(API.rooms(), options)
     .then(response => response.json())
     .then(json => UI.handleFacilityCodeSubmission(json))
 })
