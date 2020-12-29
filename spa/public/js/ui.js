@@ -114,6 +114,10 @@ class UI {
     return document.querySelector('#facilityCode')
   }
 
+  static facilityCodeForm() {
+    return document.querySelector('#facilityCodeForm')
+  }
+
   static facilityCodeButton() {
     return document.querySelector('#submitFacilityCode')
   }
