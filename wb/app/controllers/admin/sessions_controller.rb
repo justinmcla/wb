@@ -33,7 +33,6 @@ class Admin::SessionsController < ApplicationController
   end
 
   def deny_with_alert
-    flash[:alert] = 'Invalid Credentials.'
-    render :new
+    redirect_to admin_login_path, alert: 'Invalid credentials.'
   end
 end
