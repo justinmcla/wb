@@ -13,6 +13,7 @@ class Component {
 
   static newImage(source, alt) {
     const img = document.createElement('img');
+    img.setAttribute('uk-img', '');
     img.setAttribute('data-src', source);
     img.setAttribute('alt', alt)
     return img;
