@@ -26,7 +26,7 @@ class Facility {
 
   // Fetches all public facilities, creates objs, and loads to DOM
   static all() {
-    return fetch('http://localhost:3000/api/v1/facilities')
+    return fetch(API.facilities())
     .then(res => res.json())
     .then(facilities => {
       facilities.forEach(attr => new Facility(attr))
@@ -70,7 +70,7 @@ class Floor {
 
   // Fetches floors for public facilities
   static all() {
-    return fetch('http://localhost:3000/api/v1/floors')
+    return fetch(API.floors())
     .then(res => res.json())
     .then(floors => {
       floors.forEach(attr => new Floor(attr))
@@ -104,7 +104,7 @@ class Room {
 
   // Fetches rooms for public facilities, creates new rooms
   static all() {
-    return fetch('http://localhost:3000/api/v1/rooms')
+    return fetch(API.rooms())
     .then(res => res.json())
     .then(rooms => {
       rooms.forEach(attr => new Room(attr))
@@ -151,7 +151,7 @@ class Address {
 
   // Fetches all addresses for public facilities
   static all() {
-    return fetch('http://localhost:3000/api/v1/addresses')
+    return fetch(API.addresses())
       .then(res => res.json())
       .then(addresses => {
         addresses.forEach(attr => new Address(attr))
