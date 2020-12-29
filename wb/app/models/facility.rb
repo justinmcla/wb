@@ -6,6 +6,11 @@ class Facility < ApplicationRecord
   has_many :phones, as: :phoneable
 
   belongs_to :user
+
+  accepts_nested_attributes_for :address
+  accepts_nested_attributes_for :emails
+  accepts_nested_attributes_for :phones
+
   has_many_attached :images
 
   scope :public_records, -> { where(private: false) }
