@@ -20,7 +20,9 @@ class Api::V1::RoomsController < Api::V1::ApiController
         floor_id:     room.floor_id,
         facility:     room.facility,
         floor:        room.floor,
-        address:      room.facility.address }
+        address:      room.facility.address,
+        image:        room.facility.images.first.blob.service_url
+      }
     end
   end
 end
