@@ -202,6 +202,10 @@ class Address {
     return this.c ||= document.querySelector('#facilityAddress')
   }
 
+  static findById(id) {
+    return this.collection().find(address => address.id == id)
+  }
+
   // Returns element whose addressable id matches the passed in id
   static findByFacilityId(id) {
     return this.collection().find(address => address.addressable_id == id)
