@@ -243,3 +243,17 @@ class Address {
     }
   }
 }
+
+class WorkOrder {
+
+  constructor(attributes) {
+    let whitelist = ['id', 'status', 'discipline', 'description', 'response', 'facility_id', 'room_id', 'confirmation']
+    whitelist.forEach(attr => this[attr] = attributes[attr])
+    WorkOrder.collection().push(this)
+  }
+
+  static collection() {
+    return this.list ||= []
+  }
+
+}
