@@ -6,8 +6,9 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :facilities
       resources :floors
-      resources :rooms
+      resources :rooms, param: :aid
       resources :addresses
+      resources :work_orders, param: :confirmation
     end
   end
 
