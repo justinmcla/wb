@@ -85,3 +85,6 @@ end
 
 # Creates an AID for each room to be used as a default facility code.
 Room.all.each { |r| r.update aid: SecureRandom.hex(4) unless r.aid }
+
+# Creates a work order for each room
+Room.all.each { |r| create_work_order r }
