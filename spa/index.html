@@ -103,6 +103,26 @@
         <button type = 'button' id = 'resetForm' class = 'uk-button' hidden>RESET FORM</button>
       </section>
     </main>
+    <div id = 'workOrderModal' uk-modal>
+      <div class = 'uk-modal-dialog'>
+        <button class = 'uk-modal-close-default' type = 'button' uk-close></button>
+        <div class = 'uk-modal-header'>
+          <h2 id = 'woTitle' class = 'uk-modal-title'></h2>
+          <span id = 'woStatus'></span>
+        </div>
+        <div id = 'workOrderModalBody' class = 'uk-modal-body'>
+          <span id = 'woFacilityName'></span><br>
+          <span id = 'woFacilityAddress'></span>
+          <span id = 'woFacilityProblemArea'></span><br>
+          <br>
+          <span>Problem:</span><br>
+          <span id = 'woDescription'></span><br>
+          <br>
+          <span>Response:</span><br>
+          <span id = 'woResponse'>Pending.</span><br>
+        </div>
+      </div>
+    </div>
     <button id = 'submitWorkOrderButton' class = 'uk-button uk-animation-slide-left' type = 'button'>Submit Work Order</button>
   </body>
 </html>
