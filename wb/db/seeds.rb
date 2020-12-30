@@ -59,6 +59,21 @@ def create_facility_address facility
   facility.create_address a
 end
 
+# Possible disciplines for Work Orders
+DISCIPLINES = %w(Carpentry Electrical Grounds Housekeeping
+  HVAC Moving Plumbing Other)
+
+# Generates sample work order
+def create_work_order room
+  opts = {
+    discipline:   DISCIPLINES.sample,
+    description:  'This is a test.',
+    facility:     room.facility,
+    room:         room
+  }
+  WorkOrder.create opts
+end
+
 # Iterates over FACILITIES array and creates facilities that aren't found in the database
 FACILITIES.each { |f| Facility.create f unless Facility.find_by(name: f[:name]) }
 
