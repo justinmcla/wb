@@ -147,6 +147,10 @@ class UI {
     return document.querySelector('#description')
   }
 
+  static existingWorkOrderForm() {
+    return document.querySelector('#existingWorkOrderForm')
+  }
+
   static uploads() {
     return document.querySelector('#imageUpload')
   }
