@@ -1,7 +1,7 @@
 class Api::V1::RoomsController < Api::V1::ApiController
   def index
-    render json: rooms, except: [:created_at, :updated_at]
     rooms = Room.includes(:facility).where(facilities: { private: false })
+    render json: RoomSerializer.new(rooms)
   end
 
   def create
