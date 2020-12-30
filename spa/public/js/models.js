@@ -82,7 +82,7 @@ class Floor {
     return fetch(API.floors())
     .then(res => res.json())
     .then(floors => {
-      floors.forEach(attr => new Floor(attr))
+      floors.data.forEach(attr => new Floor(attr.attributes))
       return this.collection()
     })
   }
