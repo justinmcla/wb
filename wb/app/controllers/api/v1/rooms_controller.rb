@@ -4,8 +4,8 @@ class Api::V1::RoomsController < Api::V1::ApiController
     render json: RoomSerializer.new(rooms)
   end
 
-  def create
     room = Room.find_by(aid: params[:code])
+  def show
     if room
       render json: RoomSerializer.new(room, include: [:facility, :floor])
     else
