@@ -4,12 +4,18 @@ class Api::V1::RoomsController < Api::V1::ApiController
     render json: RoomSerializer.new(rooms)
   end
 
-    room = Room.find_by(aid: params[:code])
   def show
+    room = set_room
     if room
       render json: RoomSerializer.new(room, include: [:facility, :floor])
     else
       render json: {errors: 'Room not found', status: :unprocessable_entity}
     end
+  end
+
+  private
+
+  def set_room
+    Room.find_by aid: params[:aid]
   end
 end
