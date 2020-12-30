@@ -207,6 +207,7 @@ class UI {
     UI.facilityCodeButton().hidden = false
     UI.facilityCode().value = ''
     UI.facilityCode().disabled = false
+    UI.facilityCode().classList.remove('uk-form-danger')
 
     UI.facilityCard().remove()
     UI.fileIndicator().innerHTML = ''
