@@ -92,6 +92,14 @@ class Floor {
     return this.collection().find(floor => floor.id == id)
   }
 
+  static findOrCreate(object) {
+    if (Floor.findById(object.id)) {
+      return Floor.findById(object.id)
+    } else {
+      return new Floor(object)
+    }
+  }
+
   // Returns floor node element to be appended to DOM
   render() {
     this.element ||= document.createElement('option')
