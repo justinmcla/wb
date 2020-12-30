@@ -106,7 +106,7 @@ class UI {
     UI.facilityCodeButton().hidden = false
     UI.facilityName().value = facility.name
     UI.instructions().hidden = true
-    UI.renderFacilityCard(facility, image)
+    UI.renderFacilityCard(facility)
     UI.resetButton().hidden = false
 
     // Load form data based on created objs
