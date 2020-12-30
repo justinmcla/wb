@@ -144,6 +144,14 @@ class Room {
     return this.collection().find(room => room.id == id)
   }
 
+  static findOrCreate(object) {
+    if (Room.findById(object.id)) {
+      return Room.findById(object.id)
+    } else {
+      return new Room(object)
+    }
+  }
+
   // Returns option node element to be appended to the DOM
   render() {
     this.element ||= document.createElement('option')
