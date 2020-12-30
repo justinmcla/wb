@@ -9,6 +9,34 @@ class UI {
     side.prepend(addressCard)
   }
 
+  static woTitle() {
+    return document.querySelector('#woTitle')
+  }
+
+  static woStatus() {
+    return document.querySelector('#woStatus')
+  }
+
+  static woFacilityName() {
+    return document.querySelector('#woFacilityName')
+  }
+
+  static woFacilityAddress() {
+    return document.querySelector('#woFacilityAddress')
+  }
+
+  static woFacilityProblemArea() {
+    return document.querySelector('#woFacilityProblemArea')
+  }
+
+  static woDescription() {
+    return document.querySelector('#woDescription')
+  }
+
+  static woResponse() {
+    return document.querySelector('#woResponse')
+  }
+
   static loadFloorsByFacilityId(id) {
     const floors = Floor.collection().filter( f => f.facility_id == id )
     floors.forEach( floor => Floor.container().appendChild(floor.render()) )
@@ -128,6 +156,14 @@ class UI {
 
   static fileIndicator() {
     return document.querySelector('#fileList')
+  }
+
+  static workOrderCode() {
+    return document.querySelector('#workOrderCode')
+  }
+
+  static workOrderModal() {
+    return document.querySelector('#workOrderModal')
   }
 
   static resetAllFormFields() {
