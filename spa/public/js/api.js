@@ -15,7 +15,11 @@ class API {
     return `${API.base()}/floors`
   }
 
-  static rooms() {
-    return `${API.base()}/rooms`
+  static rooms(code = '') {
+    return `${API.base()}/rooms/${code}`
+  }
+
+  static workOrders(confirmation = '') {
+    return `${API.base()}/work_orders/${confirmation}`
   }
 }
