@@ -88,15 +88,14 @@ class UI {
     UI.loadFloorRooms(Floor.container().value)
   }
 
-  static handleFacilityCodeSubmission(responseJson) {
+  static handleFacilityCodeSubmission(resp) {
 
     // Create new objs based on response
 
-    const facility = new Facility(responseJson.facility)
-    const floor    = new Floor(responseJson.floor)
-    const address  = new Address(responseJson.address)
-    const room     = new Room(responseJson)
-    const image    = Component.newImage(responseJson.image, 'Some Image')
+    const facility = new Facility(resp.included[0].attributes)
+    const floor    = new Floor(resp.included[1].attributes)
+    const address  = new Address(resp.included[0].attributes.address)
+    const room     = new Room(resp.data.attributes)
 
     // Hide instructions, disable all pre-loaded form fields, show reset button
 
