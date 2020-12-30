@@ -17,9 +17,18 @@
     <script defer type = 'application/javascript' src = 'public/js/listeners.js'></script>
   </head>
   <body class = 'uk-container'>
-    <header id = 'header' class = 'uk-section-default uk-animation-slide-top'>
-      <h1 id = 'title' class = 'uk-header'>Workbench</h1>
-      <h2 id = 'pageName' class = 'uk-header'>NEW WORK ORDER</h2>
+    <header id = 'header' class = 'uk-section-default uk-animation-slide-top' uk-grid>
+      <div class = 'uk-width-1-2@s'><h1 id = 'title' class = 'uk-header'>Workbench</h1></div>
+      <div class = 'uk-width-1-2@s' id = 'pageName'>
+        <form id = 'existingWorkOrderForm' class = 'uk-child-width-auto uk-flex-right' uk-grid>
+          <div>
+            <input type = 'text' class = 'uk-input' id = 'workOrderCode'>
+          </div>
+          <div>
+            <button type = 'submit' class = 'uk-button' id = 'submitWorkOrderCode'>Check Request Status</button>
+          </div>
+        </form>
+      </div>
     </header>
     <main uk-grid class = 'uk-flex uk-flex-wrap-reverse'>
       <section id = 'main' class = 'uk-section-default uk-width-1-2@s uk-animation-slide-left'>
