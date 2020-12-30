@@ -29,7 +29,7 @@ class Facility {
     return fetch(API.facilities())
     .then(res => res.json())
     .then(facilities => {
-      facilities.forEach(attr => new Facility(attr))
+      facilities.data.forEach(attr => new Facility(attr.attributes))
       this.load()
       return this.collection()
     })
