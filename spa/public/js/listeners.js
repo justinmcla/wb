@@ -41,11 +41,11 @@ UI.facilityCodeForm().addEventListener('submit', e => {
       'Accept': 'application/json'
     },
     body: JSON.stringify({
-      'code': code
+      'confirmation': confirmation
     })
   }
 
-  fetch(API.rooms(), options)
+  fetch(API.workOrders(confirmation))
     .then(response => response.json())
     .then(json => UI.handleFacilityCodeSubmission(json))
 })
