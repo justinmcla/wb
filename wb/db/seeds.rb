@@ -84,7 +84,4 @@ Facility.all.each do |f|
 end
 
 # Creates an AID for each room to be used as a default facility code.
-Room.all.each do |r|
-  r.aid = SecureRandom.hex(4)
-  r.save
-end
+Room.all.each { |r| r.update aid: SecureRandom.hex(4) unless r.aid }
