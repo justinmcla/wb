@@ -9,6 +9,28 @@ class UI {
     side.prepend(addressCard)
   }
 
+  static handleCheckWorkOrderSubmission(resp) {
+    const facility = Facility.findOrCreate(resp.included[0].attributes)
+    const address  = Address.findOrCreate(resp.included[0].attributes.address)
+    const floor    = Floor.findOrCreate(resp.data.attributes.floor)
+    const room     = Room.findOrCreate(resp.included[1].attributes)
+    const workOrder = new WorkOrder(resp.data.attributes)
+    UI.renderWorkOrder(workOrder, facility, address, floor, room)
+  }
+
+  static renderWorkOrder(workOrder, facility, address, floor, room) {
+    UI.woTitle().innerHTML = `${workOrder.discipline} Request #${workOrder.confirmation}`
+    UI.woStatus().innerHTML = `STATUS: ${workOrder.status.toUpperCase()}`
+    UI.woFacilityName().innerHTML = facility.name
+    UI.woFacilityAddress().innerHTML = ''
+    UI.woFacilityAddress().appendChild(address.render())
+    UI.woFacilityProblemArea().innerHTML = `Floor ${floor.number}, ${room.name}`
+    UI.woDescription().innerHTML = workOrder.description
+    if (workOrder.response) {UI.woResponse().innerHTML = workOrder.response}
+
+    UIkit.modal(UI.workOrderModal()).show()
+  }
+
   static woTitle() {
     return document.querySelector('#woTitle')
   }
