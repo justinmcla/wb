@@ -124,7 +124,7 @@ class Room {
     return fetch(API.rooms())
     .then(res => res.json())
     .then(rooms => {
-      rooms.forEach(attr => new Room(attr))
+      rooms.data.forEach(attr => new Room(attr.attributes))
       return this.collection()
     })
   }
