@@ -179,9 +179,17 @@ class Address {
     return fetch(API.addresses())
       .then(res => res.json())
       .then(addresses => {
-        addresses.forEach(attr => new Address(attr))
+        addresses.data.forEach(attr => new Address(attr.attributes))
         return this.collection()
       })
+  }
+
+  static findOrCreate(object) {
+    if (Address.findById(object.id)) {
+      return Address.findById(object.id)
+    } else {
+      return new Address(object)
+    }
   }
 
   // Returns address cache
