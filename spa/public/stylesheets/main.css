@@ -30,11 +30,6 @@ h1, h2, h3 {
   font-family: 'Jacques Francois', Georgia, 'Times New Roman', Times, serif;
 }
 
-#header {
-  border-bottom: 2px solid #C1A57B;
-  margin-bottom: 1.5rem;
-}
-
 #footer {
   border-top: 2px solid #C1A57B;
   margin-top: 2.5rem;
@@ -43,16 +38,6 @@ h1, h2, h3 {
 #submitWorkOrderButton {
   display: block;
   margin: 1rem auto;
-}
-
-#title {
-  float: left;
-}
-
-#pageName {
-  text-align: right;
-  color: #ECECEC;
-  font-family: 'Roboto', sans-serif;
 }
 
 #side p {
@@ -104,4 +89,12 @@ h1, h2, h3 {
 
 .uk-section-default {
   background-color: transparent;
+}
+
+.uk-input:disabled {
+  color: #222831
+}
+
+#woTitle {
+  font-family: 'Roboto', sans-serif;
 }
