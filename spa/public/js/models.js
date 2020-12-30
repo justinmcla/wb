@@ -40,6 +40,15 @@ class Facility {
     return this.collection().find(facility => facility.id == id)
   }
 
+  // Finds Facility object if exists, or creates new one
+  static findOrCreate(object) {
+    if (Facility.findById(object.id)) {
+      return Facility.findById(object.id)
+    } else {
+      return new Facility(object)
+    }
+  }
+
   // Returns facility option node to be appended to DOM
   render() {
     this.element ||= document.createElement('option')
