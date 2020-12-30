@@ -12,10 +12,9 @@ UI.facilityName().addEventListener('input', e => {
   } else {
     UI.resetButton().hidden = true
     UI.instructions().hidden = false
-    UI.facilityCard().remove()
+    if (UI.facilityCard()) { UI.facilityCard().remove() }
     UI.clearFloorNumbers()
     UI.clearRoomNames()
-    UI.resetAllFormFields()
   }
 })
 
