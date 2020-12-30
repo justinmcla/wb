@@ -34,6 +34,9 @@ UI.uploads().addEventListener('input', e => {
 UI.facilityCodeForm().addEventListener('submit', e => {
   e.preventDefault();
   const code = document.querySelector('#facilityCode').value
+UI.resetButton().addEventListener('click', e => {
+  UI.resetAllFormFields()
+})
   const options = {
     method: 'POST',
     headers: {
