@@ -171,6 +171,11 @@ class Room {
   }
 
   // Loads rooms based on selected floor
+  static loadByFloor(id) {
+    const rooms = Room.collection().filter( r => r.floor_id == id )
+    rooms.forEach( room => Room.container().appendChild(room.render()) )
+  }
+
   // Returns option node element to be appended to the DOM
   render() {
     this.element ||= document.createElement('option')
