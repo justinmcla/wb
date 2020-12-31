@@ -1,4 +1,6 @@
 class Api::V1::RoomsController < Api::V1::ApiController
+  before_action :authenticate_token, only: :show
+
   def index
     rooms = Room.includes(:facility).where(facilities: { private: false })
     render json: RoomSerializer.new(rooms)
