@@ -120,5 +120,21 @@
       </div>
     </div>
     <button id = 'submitWorkOrderButton' class = 'uk-button uk-animation-slide-left' type = 'button'>Submit Work Order</button>
+    <div id = 'passwordModal' uk-modal>
+      <div class = 'uk-modal-dialog'>
+        <button class = 'uk-modal-close-default' type = 'button' uk-close></button>
+        <div id = 'passwordModalBody' class = 'uk-modal-body'>
+          <p>Enter password to access this resource.</p>
+          <form id = 'passwordForm' uk-grid>
+            <div class = 'uk-width-1-2@s'>
+              <input type = 'password' class = 'uk-input' id = 'password'>
+            </div>
+            <div class = 'uk-width-1-2@s'>
+              <button type = 'submit' class = 'uk-button' id = 'submitPassword'>Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
