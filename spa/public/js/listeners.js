@@ -33,6 +33,8 @@ UI.get('#imageUpload').addEventListener('input', e => {
 
 UI.get('#facilityCodeForm').addEventListener('submit', e => {
   e.preventDefault();
+  UI.get('#passwordForm').dataset.requestType = 'room'
+  UIkit.modal(UI.get('#passwordModal')).show()
 })
   const options = {
     method: 'POST',
