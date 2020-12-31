@@ -13,6 +13,10 @@ class API {
     return `${API.base()}/addresses`
   }
 
+  static auth() {
+    return `${API.base()}/auth`
+  }
+
   static facilities() {
     return `${API.base()}/facilities`
   }
