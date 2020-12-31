@@ -36,20 +36,7 @@ UI.get('#facilityCodeForm').addEventListener('submit', e => {
   UI.get('#passwordForm').dataset.requestType = 'room'
   UIkit.modal(UI.get('#passwordModal')).show()
 })
-  const options = {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Accept': 'application/json'
-    },
-    body: JSON.stringify({
-      'confirmation': confirmation
-    })
-  }
 
-  fetch(API.workOrders(confirmation))
-    .then(response => response.json())
-    .then(json => UI.handleFacilityCodeSubmission(json))
 })
 
 UI.resetButton().addEventListener('click', e => {
