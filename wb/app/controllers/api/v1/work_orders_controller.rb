@@ -1,4 +1,6 @@
 class Api::V1::WorkOrdersController < Api::V1::ApiController
+  before_action :authenticate_token, only: :show
+
   def show
     work_order = set_work_order
     if work_order
