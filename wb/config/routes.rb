@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       resources :rooms, param: :aid
       resources :addresses
       resources :work_orders, param: :confirmation
+      post '/auth', to: 'authentication#create'
     end
   end
 
