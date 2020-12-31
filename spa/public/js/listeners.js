@@ -43,6 +43,4 @@ UI.get('#statusForm').addEventListener('submit', e => {
   UIkit.modal(UI.get('#passwordModal')).show()
 })
 
-UI.resetButton().addEventListener('click', e => {
-  UI.resetAllFormFields()
 })
