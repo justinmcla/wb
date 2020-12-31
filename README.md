@@ -79,8 +79,8 @@ Contains all models and definitions.
 */
 
 class Facility {
-	...
-	constructor(attributes) {
+  ...
+  constructor(attributes) {
     const whitelist = ['id', 'name', 'private']
     whitelist.forEach(attr => this[attr] = attributes[attr])
     Facility.collection().push(this)
@@ -90,11 +90,13 @@ class Facility {
 
 /* public/js/ui.js
 Contains all handler logic for event listeners.
+*/
 
 // Insert file examples
 
 /* public/js/listeners.js
 Contains all event listeners
+*/
 
 // Insert file examples
 ```
