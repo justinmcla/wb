@@ -38,11 +38,11 @@ class UI {
 
   static handleFacilityInput(selectedFacility) {
     const facility = Facility.findById(selectedFacility.id)
-    UI.instructions().hidden = true
-    UI.resetButton().hidden = false
-    UI.renderFacilityCard(facility)
-    UI.loadFloorsByFacilityId(facility.id)
-    UI.loadFloorRooms(Floor.container().value)
+    UI.get('#instructions').hidden = true
+    UI.get('#resetFormButton').hidden = false
+    UI.get('#side').prepend(facility.renderCard())
+    Floor.loadByFacilityId(facility.id)
+    Room.loadByFloor(Floor.container().value)
   }
 
   static handleFacilityCodeSubmission(resp) {
@@ -56,20 +56,20 @@ class UI {
 
     // Hide instructions, disable all pre-loaded form fields, show reset button
 
-    UI.clearFloorNumbers()
-    UI.clearRoomNames()
-    UI.facilityCodeButton().hidden = true
-    UI.facilityCode().disabled = true
-    UI.facilityCodeButton().hidden = false
-    UI.facilityName().value = facility.name
-    UI.instructions().hidden = true
-    UI.renderFacilityCard(facility)
-    UI.resetButton().hidden = false
+    Floor.container().innerHTML = ''
+    Room.container().innerHTML  = ''
+    UI.get('#facilityCodeFormSubmit').hidden = true
+    UI.get('#facilityCode').disabled = true
+    UI.get('#facilityCodeFormSubmit').hidden = false
+    UI.get('#facilityName').value = facility.name
+    UI.get('#instructions').hidden = true
+    UI.get('#side').prepend(facility.renderCard())
+    UI.get('#resetFormButton').hidden = false
 
     // Load form data based on created objs
 
-    UI.facilityName().value = facility.name
-    UI.facilityName().disabled = true
+    UI.get('#facilityName').value = facility.name
+    UI.get('#facilityName').disabled = true
 
     Floor.container().appendChild(floor.render())
     Floor.container().children.namedItem(floor.id).setAttribute('selected', '')
@@ -80,25 +80,23 @@ class UI {
     Room.container().disabled = true
   }
 
-  static resetAllFormFields() {
-    UI.facilityName().value = ''
-    UI.facilityName().disabled = false
-    UI.clearFloorNumbers()
-    Floor.container().disabled = false
-    UI.clearRoomNames()
-    Room.container().disabled = false
-    UI.disciplines().value = 'Carpentry'
-    UI.description().value = ''
-    UI.uploads().value = ''
-
-    UI.instructions().hidden = false
-    UI.resetButton().hidden = true
-    UI.facilityCodeButton().hidden = false
-    UI.facilityCode().value = ''
-    UI.facilityCode().disabled = false
-    UI.facilityCode().classList.remove('uk-form-danger')
-
-    UI.facilityCard().remove()
-    UI.fileIndicator().innerHTML = ''
+  static resetForm() {
+    UI.get('#facilityCard').remove()
+    UI.get('#fileList').innerHTML = ''
+    Floor.container().innerHTML = ''
+    Floor.container().disabled  = false
+    Room.container().innerHTML  = ''
+    Room.container().disabled   = false
+    UI.get('#facilityName').value = ''
+    UI.get('#disciplines').value  = 'Carpentry'
+    UI.get('#description').value  = ''
+    UI.get('#imageUpload').value  = ''
+    UI.get('#facilityCode').value = ''
+    UI.get('#facilityName').disabled = false
+    UI.get('#facilityCode').disabled = false
+    UI.get('#instructions').hidden           = false
+    UI.get('#resetFormButton').hidden        = true
+    UI.get('#facilityCodeFormSubmit').hidden = false
+    UI.get('#facilityCode').classList.remove('uk-form-danger')
   }
 }
