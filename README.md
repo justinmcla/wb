@@ -38,6 +38,67 @@ These credentials will then be imported into the `config/storage.yml` file.
 
 The database is built on PostgreSQL. It is helpful, albeit not necessary, to utilize a database software that allows you to view and make changes to tables in the database.
 
+### JavaScript Modules
+
+The SPA JavaScript is organized by module functionality.
+
+```javascript
+/* public/js/api.js
+Contains getter methods for all of the API endpoints. Any additional endpoints should be added to this file. Endpoints follow RESTful conventions, and getter method structure should maintain flexibility to work with each corresponding RESTful route.
+*/
+
+class API {
+  ...
+  static base() {
+    return 'http://localhost:3000/api/v1'
+  }
+
+	static addresses() {
+    return `${API.base()}/addresses`
+  }
+	...
+}
+
+/* public/js/jwt.js
+Contains getter and setter methods for JWTs. These are being stored in memory as the data they provide access to should not persist beyond a page refresh.
+*/
+
+class JWT {
+  ...
+  static get() {
+    return this.token
+  }
+
+  static set(token) {
+    this.token = token
+  }
+}
+
+/* public/js/models.js
+Contains all models and definitions.
+*/
+
+class Facility {
+	...
+	constructor(attributes) {
+    const whitelist = ['id', 'name', 'private']
+    whitelist.forEach(attr => this[attr] = attributes[attr])
+    Facility.collection().push(this)
+  }
+	...
+}
+
+/* public/js/ui.js
+Contains all handler logic for event listeners.
+
+// Insert file examples
+
+/* public/js/listeners.js
+Contains all event listeners
+
+// Insert file examples
+```
+
 ### API Structure
 
 ##### Endpoints & Controllers
@@ -117,3 +178,4 @@ bg-resetbuttonfix-17
 ```
 
 Pull requests will be reviewed as they are received. Contributions should be limited to bug fixes, unless the feature request is marked as cleared for contribution.
+
