@@ -58,6 +58,14 @@ class Facility {
   }
 
   // Returns facility card with address
+  renderCard() {
+    this.card ||= document.createElement('div')
+    this.card.classList.add(...['uk-card', 'uk-card-body', 'uk-card-default'])
+    this.card.id = 'facilityCard'
+    const address = Address.findByFacilityId(this.id).render()
+    this.card.appendChild(address)
+    return this.card
+  }
 }
 
 class Floor {
