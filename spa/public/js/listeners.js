@@ -10,11 +10,6 @@ UI.get('#facilityName').addEventListener('input', e => {
   if (selected) {
     UI.handleFacilityInput(selected)
   } else {
-    UI.resetButton().hidden = true
-    UI.instructions().hidden = false
-    if (UI.facilityCard()) { UI.facilityCard().remove() }
-    UI.clearFloorNumbers()
-    UI.clearRoomNames()
     UI.get('#resetFormButton').hidden = true
     UI.get('#instructions').hidden = false
     if (UI.get('#facilityCard')) { UI.get('#facilityCard').remove() }
@@ -38,9 +33,6 @@ UI.get('#imageUpload').addEventListener('input', e => {
 
 UI.get('#facilityCodeForm').addEventListener('submit', e => {
   e.preventDefault();
-  const code = document.querySelector('#facilityCode').value
-UI.resetButton().addEventListener('click', e => {
-  UI.resetAllFormFields()
 })
   const options = {
     method: 'POST',
