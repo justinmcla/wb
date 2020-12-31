@@ -14,17 +14,16 @@ class UI {
   }
 
   static renderWorkOrder(workOrder, facility, address, floor, room) {
-    UI.woTitle().innerHTML = `${workOrder.discipline} Request #${workOrder.confirmation}`
-    UI.woStatus().innerHTML = `STATUS: ${workOrder.status.toUpperCase()}`
-    UI.woFacilityName().innerHTML = facility.name
-    UI.woFacilityAddress().innerHTML = ''
-    UI.woFacilityAddress().appendChild(address.render())
-    UI.woFacilityProblemArea().innerHTML = `Floor ${floor.number}, ${room.name}`
-    UI.woDescription().innerHTML = workOrder.description
-    if (workOrder.response) {UI.woResponse().innerHTML = workOrder.response}
+    UI.get('#woTitle').innerHTML = `${workOrder.discipline} Request #${workOrder.confirmation}`
+    UI.get('#woStatus').innerHTML = `STATUS: ${workOrder.status.toUpperCase()}`
+    UI.get('#woFacilityName').innerHTML = facility.name
+    UI.get('#woFacilityAddress').innerHTML = ''
+    UI.get('#woFacilityAddress').appendChild(address.render())
+    UI.get('#woFacilityProblemArea').innerHTML = `Floor ${floor.number}, ${room.name}`
+    UI.get('#woDescription').innerHTML = workOrder.description
+    if (workOrder.response) {UI.get('#woResponse').innerHTML = workOrder.response}
 
-    UIkit.modal(UI.workOrderModal()).show()
-  }
+    UIkit.modal(UI.get('#workOrderModal')).show()
   }
 
   static facilityInput(e) {
