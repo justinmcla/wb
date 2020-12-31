@@ -38,21 +38,21 @@
           <div class = 'uk-width-1-2'>
             <label for = 'floorNumbers' class = 'uk-form-label'>Floor</label><br>
             <div class = 'uk-form-controls'>
-              <select class = 'uk-select' id = 'floorNumbers'>
+              <select class = 'uk-select' name = 'floorNumbers' id = 'floorNumbers'>
               </select>
             </div>
           </div>
           <div class = 'uk-width-1-2'>
             <label for = 'roomNames' class = 'uk-form-label'>Room</label>
             <div class = 'uk-form-controls'>
-              <select class = 'uk-select' id = 'roomNames'>
+              <select class = 'uk-select' id = 'roomNames' name = 'roomNames'>
               </select>
             </div>
           </div>
           <div class = 'uk-width-1-1'>
             <label for = 'disciplines' class = 'uk-form-label'>Discipline</label>
             <div class = 'uk-form-controls'>
-              <select class = 'uk-select' id = 'disciplines'>
+              <select class = 'uk-select' id = 'disciplines' name = 'disciplines'>
                 <option value = 'Carpentry'>Carpentry</option>
                 <option value = 'Electrical'>Electrical</option>
                 <option value = 'Grounds'>Grounds</option>
@@ -66,11 +66,11 @@
           </div>
           <div class = 'uk-width-1-1'>
             <label for = 'description' class = 'uk-form-label'>Description</label>
-            <textarea id = 'description' class = 'uk-textarea' rows = '5'></textarea>
+            <textarea id = 'description' class = 'uk-textarea' rows = '5' name = 'description'></textarea>
           </div>
           <div class = 'uk-width-1-1'>
             <div uk-form-custom = 'target: true'>
-              <input id = 'imageUpload' type = 'file' multiple>
+              <input id = 'imageUpload' type = 'file' name = 'imageUpload' multiple>
               <button id = 'imageUploadButton' class = 'uk-button' type = 'button' tabindex = '-1'>Upload Images</button>
             </div>
             <span id = 'fileList'></span>
@@ -88,7 +88,7 @@
             submitting a work order.</p>
           <form id = 'facilityCodeForm' uk-grid>
             <div class = 'uk-width-1-2@s'>
-              <input type = 'text' class = 'uk-input' id = 'facilityCode'>
+              <input type = 'text' class = 'uk-input' id = 'facilityCode' name = 'facilityCode'>
             </div>
             <div class = 'uk-width-1-2@s'>
               <button type = 'submit' class = 'uk-button' id = 'submitFacilityCode'>Enter Code</button>
