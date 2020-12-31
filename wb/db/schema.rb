@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_29_053333) do
+ActiveRecord::Schema.define(version: 2020_12_30_162541) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -106,6 +106,7 @@ ActiveRecord::Schema.define(version: 2020_12_29_053333) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "aid"
+    t.string "password_digest"
     t.index ["aid"], name: "index_rooms_on_aid"
     t.index ["facility_id"], name: "index_rooms_on_facility_id"
     t.index ["floor_id"], name: "index_rooms_on_floor_id"
@@ -129,6 +130,7 @@ ActiveRecord::Schema.define(version: 2020_12_29_053333) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "confirmation"
+    t.string "password_digest"
     t.index ["confirmation"], name: "index_work_orders_on_confirmation"
     t.index ["facility_id"], name: "index_work_orders_on_facility_id"
     t.index ["room_id"], name: "index_work_orders_on_room_id"
