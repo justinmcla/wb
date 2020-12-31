@@ -1,4 +1,7 @@
 class UI {
+
+  static get(node) {
+    return document.querySelector(node)
   }
 
   static handleCheckWorkOrderSubmission(resp) {
