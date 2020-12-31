@@ -24,7 +24,7 @@ class Facility {
     return this.list ||= []
   }
 
-  // Fetches all public facilities, creates objs, and loads to DOM
+  // Fetches all public facilities, creates objs
   static all() {
     return fetch(API.facilities())
     .then(res => res.json())
@@ -56,6 +56,8 @@ class Facility {
     this.element.value = this.name
     return this.element // <option id = '#' value = 'Some Facility'></option>
   }
+
+  // Returns facility card with address
 }
 
 class Floor {
@@ -92,6 +94,8 @@ class Floor {
     return this.collection().find(floor => floor.id == id)
   }
 
+  // Loads floors based on selected facility
+  // Finds or creates a floor object based on passed in object
   static findOrCreate(object) {
     if (Floor.findById(object.id)) {
       return Floor.findById(object.id)
@@ -144,6 +148,7 @@ class Room {
     return this.collection().find(room => room.id == id)
   }
 
+  // Finds or creates new Room based on passed in object
   static findOrCreate(object) {
     if (Room.findById(object.id)) {
       return Room.findById(object.id)
@@ -152,6 +157,7 @@ class Room {
     }
   }
 
+  // Loads rooms based on selected floor
   // Returns option node element to be appended to the DOM
   render() {
     this.element ||= document.createElement('option')
@@ -184,6 +190,7 @@ class Address {
       })
   }
 
+  // Finds or creates Address objects based on passed in object
   static findOrCreate(object) {
     if (Address.findById(object.id)) {
       return Address.findById(object.id)
@@ -202,6 +209,7 @@ class Address {
     return this.c ||= document.querySelector('#facilityAddress')
   }
 
+  // Finds Address by id
   static findById(id) {
     return this.collection().find(address => address.id == id)
   }
@@ -246,12 +254,14 @@ class Address {
 
 class WorkOrder {
 
+  // Creates and caches work order
   constructor(attributes) {
     let whitelist = ['id', 'status', 'discipline', 'description', 'response', 'facility_id', 'room_id', 'confirmation']
     whitelist.forEach(attr => this[attr] = attributes[attr])
     WorkOrder.collection().push(this)
   }
 
+  // Returns work order cache
   static collection() {
     return this.list ||= []
   }
