@@ -103,6 +103,11 @@ class Floor {
   }
 
   // Loads floors based on selected facility
+  static loadByFacilityId(id) {
+    const floors = this.collection().filter( f => f.facility_id == id )
+    floors.forEach( floor => this.container().appendChild(floor.render()) )
+  }
+
   // Finds or creates a floor object based on passed in object
   static findOrCreate(object) {
     if (Floor.findById(object.id)) {
