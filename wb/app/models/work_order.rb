@@ -1,6 +1,8 @@
 class WorkOrder < ApplicationRecord
   to_param :confirmation
-  
+
+  has_secure_password
+
   before_create :set_confirmation
   before_create :set_status
 
