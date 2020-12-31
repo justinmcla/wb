@@ -18,15 +18,11 @@
   </head>
   <body class = 'uk-container'>
     <header id = 'header' class = 'uk-section-default uk-animation-slide-top' uk-grid>
-      <div class = 'uk-width-1-2@s'><h1 id = 'title' class = 'uk-header'>Workbench</h1></div>
-      <div class = 'uk-width-1-2@s' id = 'pageName'>
-        <form id = 'existingWorkOrderForm' class = 'uk-child-width-auto uk-flex-right' uk-grid>
-          <div>
-            <input type = 'text' class = 'uk-input' id = 'workOrderCode'>
-          </div>
-          <div>
-            <button type = 'submit' class = 'uk-button' id = 'submitWorkOrderCode'>Check Request Status</button>
-          </div>
+      <div class = 'uk-width-1-2@s'><h1 id = 'pageTitle' class = 'uk-header'>Workbench</h1></div>
+      <div class = 'uk-width-1-2@s' id = 'statusFormDiv'>
+        <form id = 'statusForm' class = 'uk-child-width-auto uk-flex-right' uk-grid>
+          <div><input type = 'text' class = 'uk-input' id = 'confirmationCode' name = 'confirmationCode'></div>
+          <div><button type = 'submit' class = 'uk-button' id = 'statusFormSubmit'>Check Request Status</button></div>
         </form>
       </div>
     </header>
