@@ -1,12 +1,4 @@
 class UI {
-  static renderFacilityCard(facility, image) {
-    const addressParagraph = Address.findByFacilityId(facility.id).render();
-    const addressCard      = Component.newCard()
-    addressCard.id         = 'facilityCard'
-    if (image) { addressCard.appendChild(image) }
-    addressCard.appendChild(addressParagraph)
-    const side             = document.querySelector('#side')
-    side.prepend(addressCard)
   }
 
   static handleCheckWorkOrderSubmission(resp) {
@@ -30,43 +22,6 @@ class UI {
 
     UIkit.modal(UI.workOrderModal()).show()
   }
-
-  static woTitle() {
-    return document.querySelector('#woTitle')
-  }
-
-  static woStatus() {
-    return document.querySelector('#woStatus')
-  }
-
-  static woFacilityName() {
-    return document.querySelector('#woFacilityName')
-  }
-
-  static woFacilityAddress() {
-    return document.querySelector('#woFacilityAddress')
-  }
-
-  static woFacilityProblemArea() {
-    return document.querySelector('#woFacilityProblemArea')
-  }
-
-  static woDescription() {
-    return document.querySelector('#woDescription')
-  }
-
-  static woResponse() {
-    return document.querySelector('#woResponse')
-  }
-
-  static loadFloorsByFacilityId(id) {
-    const floors = Floor.collection().filter( f => f.facility_id == id )
-    floors.forEach( floor => Floor.container().appendChild(floor.render()) )
-  }
-
-  static loadFloorRooms(id) {
-    const rooms = Room.collection().filter( r => r.floor_id == id )
-    rooms.forEach( room => Room.container().appendChild(room.render()) )
   }
 
   static facilityInput(e) {
@@ -121,74 +76,6 @@ class UI {
     Room.container().appendChild(room.render())
     Room.container().children.namedItem(room.id).setAttribute('selected', '')
     Room.container().disabled = true
-  }
-
-  static facilityName() {
-    return document.querySelector('#facilityName')
-  }
-
-  static clearFloorNumbers() {
-    while(Floor.container().firstChild) {
-      Floor.container().removeChild(Floor.container().lastChild)
-    }
-  }
-
-  static clearRoomNames() {
-    while(Room.container().firstChild) {
-      Room.container().removeChild(Room.container().lastChild)
-    }
-  }
-
-  static disciplines() {
-    return document.querySelector('#disciplines')
-  }
-
-  static description() {
-    return document.querySelector('#description')
-  }
-
-  static existingWorkOrderForm() {
-    return document.querySelector('#existingWorkOrderForm')
-  }
-
-  static uploads() {
-    return document.querySelector('#imageUpload')
-  }
-
-  static instructions() {
-    return document.querySelector('#instructions')
-  }
-
-  static resetButton() {
-    return document.querySelector('#resetForm')
-  }
-
-  static facilityCode() {
-    return document.querySelector('#facilityCode')
-  }
-
-  static facilityCodeForm() {
-    return document.querySelector('#facilityCodeForm')
-  }
-
-  static facilityCodeButton() {
-    return document.querySelector('#submitFacilityCode')
-  }
-
-  static facilityCard() {
-    return document.querySelector('#facilityCard')
-  }
-
-  static fileIndicator() {
-    return document.querySelector('#fileList')
-  }
-
-  static workOrderCode() {
-    return document.querySelector('#workOrderCode')
-  }
-
-  static workOrderModal() {
-    return document.querySelector('#workOrderModal')
   }
 
   static resetAllFormFields() {
