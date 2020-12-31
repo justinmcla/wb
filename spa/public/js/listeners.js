@@ -37,6 +37,10 @@ UI.get('#facilityCodeForm').addEventListener('submit', e => {
   UIkit.modal(UI.get('#passwordModal')).show()
 })
 
+UI.get('#statusForm').addEventListener('submit', e => {
+  e.preventDefault();
+  UI.get('#passwordForm').dataset.requestType = 'workOrder'
+  UIkit.modal(UI.get('#passwordModal')).show()
 })
 
 UI.resetButton().addEventListener('click', e => {
