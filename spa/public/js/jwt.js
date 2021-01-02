@@ -26,28 +26,25 @@ class JsonWebToken {
     this.clear()
 
     return fetch(API.auth(), {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      }, body: JSON.stringify({
-        'request_type': requestType,
-        'code': code,
-        'password': password
-      })
-    }).then(res => res.json())
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          'request_type': requestType,
+          'code': code,
+          'password': password
+        })
+      }).then(res => res.json())
       .then(json => {
         if (json.status == 'ok') {
+          JsonWebToken.set(json.token)
           return json
         } else {
           return Promise.reject(json.errors)
         }
-      })
-      .then(json => {
-        JsonWebToken.set(json.token)
-        return json
-      })
-      .catch(error => {
+      }).catch(error => {
         console.error(error)
         document.querySelector('#passwordError').innerHTML = error
         document.querySelector('#password').classList.add('uk-form-danger')
