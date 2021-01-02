@@ -5,11 +5,11 @@ class UI {
   }
 
   static handleCheckWorkOrderSubmission(resp) {
-    const facility = Facility.findOrCreate(resp.included[0].attributes)
-    const address  = Address.findOrCreate(resp.included[0].attributes.address)
-    const floor    = Floor.findOrCreate(resp.data.attributes.floor)
-    const room     = Room.findOrCreate(resp.included[1].attributes)
     const workOrder = new WorkOrder(resp.data.attributes)
+    const address   = Address.findOrCreate(resp.included[0].attributes)
+    const facility  = Facility.findOrCreate(resp.included[1].attributes)
+    const floor     = Floor.findOrCreate(resp.included[2].attributes)
+    const room      = Room.findOrCreate(resp.included[3].attributes)
     UI.renderWorkOrder(workOrder, facility, address, floor, room)
   }
 
@@ -62,13 +62,10 @@ class UI {
   }
 
   static handleFacilityCodeSubmission(resp) {
-
-    // Create new objs based on response
-
-    const facility = new Facility(resp.included[0].attributes)
-    const floor    = new Floor(resp.included[1].attributes)
-    const address  = new Address(resp.included[0].attributes.address)
     const room     = new Room(resp.data.attributes)
+    const address  = new Address(resp.included[0].attributes)
+    const facility = new Facility(resp.included[1].attributes)
+    const floor    = new Floor(resp.included[2].attributes)
 
     // Hide instructions, disable all pre-loaded form fields, show reset button
 
