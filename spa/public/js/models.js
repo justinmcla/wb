@@ -2,7 +2,7 @@ class Facility {
 
   // Automatically caches every new Facility instance
   constructor(attributes) {
-    const whitelist = ['id', 'name', 'private']
+    const whitelist = ['id', 'name']
     whitelist.forEach(attr => this[attr] = attributes[attr])
     Facility.collection().push(this)
   }
