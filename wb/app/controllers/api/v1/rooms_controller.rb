@@ -3,15 +3,18 @@ class Api::V1::RoomsController < Api::V1::ApiController
 
   def index
     rooms = Room.includes(:facility).where(facilities: { private: false })
-    render json: RoomSerializer.new(rooms)
+    render json: rooms, except: %i[created_at updated_at aid password_digest]
   end
 
   def show
     room = Room.find_by aid: @code
-    if room
-      render json: RoomSerializer.new(room, include: [:facility, :floor])
-    else
-      render json: {errors: 'Room not found', status: :unprocessable_entity}
-    end
+    room ? render_room(room) : render_no_record
+  end
+
+  private
+
+  def render_room(room)
+    options = { include: %i[facility facility.address floor] }
+    render json: RoomSerializer.new(room, options)
   end
 end
