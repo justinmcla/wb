@@ -40,6 +40,10 @@ class Facility {
     return this.collection().find(facility => facility.id == id)
   }
 
+  static findByName(name) {
+    return this.collection().find(facility => facility.name == name)
+  }
+
   // Finds Facility object if exists, or creates new one
   static findOrCreate(object) {
     if (Facility.findById(object.id)) {
