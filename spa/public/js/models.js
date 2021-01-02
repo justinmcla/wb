@@ -58,7 +58,8 @@ class Facility {
     this.element ||= document.createElement('option')
     this.element.id = this.id
     this.element.value = this.name
-    return this.element // <option id = '#' value = 'Some Facility'></option>
+    return this.element
+    // <option id = '#' value = 'Some Facility'></option>
   }
 
   // Returns facility card with address
