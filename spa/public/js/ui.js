@@ -26,6 +26,23 @@ class UI {
     UIkit.modal(UI.get('#workOrderModal')).show()
   }
 
+  static handleNewWorkOrder(workOrder) {
+    const facility = Facility.findById(workOrder.facility_id)
+    const address  = Address.findByFacilityId(facility.id)
+    const room     = Room.findById(workOrder.room_id)
+    const floor    = Floor.findById(room.floor_id)
+
+    UI.get('#submissionResult').innerHTML = `${workOrder.discipline} Request Received`
+    UI.get('#submissionConfirmation').innerHTML = workOrder.confirmation
+    UI.get('#subFacilityName').innerHTML = facility.name
+    UI.get('#subFacilityAddress').innerHTML = ''
+    UI.get('#subFacilityAddress').appendChild(address.render())
+    UI.get('#subFacilityProblemArea').innerHTML = `Floor ${floor.number}, ${room.name}`
+    UI.get('#subDescription').innerHTML = workOrder.description
+
+    UIkit.modal(UI.get('#submissionModal')).show()
+  }
+
   static facilityInput(e) {
     const options = Facility.container().children
     for (let i = 0; i < options.length; i++) {
