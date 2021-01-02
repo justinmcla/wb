@@ -50,6 +50,13 @@ UI.get('#newWorkOrderForm').addEventListener('submit', e => {
     console.error(error)
   })
 })
+
+UI.get('#passwordModal').addEventListener('hidden', e => {
+  UI.get('#password').value = ''
+  UI.get('#password').className = 'uk-input'
+  UI.get('#passwordError').innerHTML = ''
+})
+
 UI.get('#facilityCodeForm').addEventListener('submit', e => {
   e.preventDefault();
   UI.get('#passwordForm').dataset.requestType = 'room'
