@@ -44,7 +44,6 @@ class JsonWebToken {
       })
       .then(json => {
         JsonWebToken.set(json.token)
-        UIkit.modal(document.querySelector('#passwordModal')).hide()
         return json
       })
       .catch(error => {
