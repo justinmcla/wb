@@ -59,14 +59,29 @@ UI.get('#passwordModal').addEventListener('hidden', e => {
 
 UI.get('#facilityCodeForm').addEventListener('submit', e => {
   e.preventDefault();
-  UI.get('#passwordForm').dataset.requestType = 'room'
-  UIkit.modal(UI.get('#passwordModal')).show()
+  const code = UI.get('#facilityCode')
+  if(code.value != '') {
+    code.classList.remove('uk-form-danger')
+    UI.get('#passwordForm').dataset.requestType = 'room'
+    UI.get('#passwordForm').dataset.requestCode = UI.get('#facilityCode').value
+    UIkit.modal(UI.get('#passwordModal')).show()
+  } else {
+    code.classList.add('uk-form-danger')
+  }
 })
 
 UI.get('#statusForm').addEventListener('submit', e => {
   e.preventDefault();
-  UI.get('#passwordForm').dataset.requestType = 'workOrder'
-  UIkit.modal(UI.get('#passwordModal')).show()
+  const code = UI.get('#confirmationCode')
+  if(code.value != '') {
+    code.classList.remove('uk-form-danger')
+    UI.get('#passwordForm').dataset.requestType = 'workOrder'
+    UI.get('#passwordForm').dataset.requestCode = UI.get('#confirmationCode').value
+    UIkit.modal(UI.get('#passwordModal')).show()
+  } else {
+    code.classList.add('uk-form-danger')
+  }
+})
 })
 
 })
