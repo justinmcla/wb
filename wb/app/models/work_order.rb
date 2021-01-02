@@ -1,10 +1,9 @@
 class WorkOrder < ApplicationRecord
   to_param :confirmation
+  before_validation :set_confirmation_and_password
+  before_validation :set_status
 
   has_secure_password
-
-  before_create :set_confirmation
-  before_create :set_status
 
   belongs_to :facility
   belongs_to :room
