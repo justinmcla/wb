@@ -24,7 +24,7 @@
       <div class = 'uk-width-1-2@s'><h1 id = 'pageTitle' class = 'uk-header'>Workbench</h1></div>
       <div class = 'uk-width-1-2@s' id = 'statusFormDiv'>
         <form id = 'statusForm' class = 'uk-child-width-auto uk-flex-right' uk-grid>
-          <div><input type = 'text' class = 'uk-input' id = 'confirmationCode' name = 'confirmationCode'></div>
+          <div><input type = 'text' class = 'uk-input' id = 'confirmationCode' name = 'confirmationCode' required></div>
           <div><button type = 'submit' class = 'uk-button' id = 'statusFormSubmit'>Check Request Status</button></div>
         </form>
       </div>
@@ -37,28 +37,28 @@
         <form id = 'newWorkOrderForm' uk-grid>
           <div class = 'uk-width-1-1'>
             <label for = 'facilityName' class = 'uk-form-label'>Facility Name</label>
-            <input id = 'facilityName' name = 'facilityName' class = 'uk-input' list = 'facilities' placeholder = 'Kramerica Industries'>
+            <input id = 'facilityName' name = 'facilityName' class = 'uk-input' list = 'facilities' placeholder = 'Kramerica Industries' required>
             <datalist id = 'facilities'>
             </datalist>
           </div>
           <div class = 'uk-width-1-2'>
             <label for = 'floorNumbers' class = 'uk-form-label'>Floor</label><br>
             <div class = 'uk-form-controls'>
-              <select class = 'uk-select' name = 'floorNumbers' id = 'floorNumbers'>
+              <select class = 'uk-select' name = 'floor_id' id = 'floorNumbers' required>
               </select>
             </div>
           </div>
           <div class = 'uk-width-1-2'>
             <label for = 'roomNames' class = 'uk-form-label'>Room</label>
             <div class = 'uk-form-controls'>
-              <select class = 'uk-select' id = 'roomNames' name = 'roomNames'>
+              <select class = 'uk-select' id = 'roomNames' name = 'room_id' required>
               </select>
             </div>
           </div>
           <div class = 'uk-width-1-1'>
             <label for = 'disciplines' class = 'uk-form-label'>Discipline</label>
             <div class = 'uk-form-controls'>
-              <select class = 'uk-select' id = 'disciplines' name = 'disciplines'>
+              <select class = 'uk-select' id = 'disciplines' name = 'discipline' required>
                 <option value = 'Carpentry'>Carpentry</option>
                 <option value = 'Electrical'>Electrical</option>
                 <option value = 'Grounds'>Grounds</option>
@@ -72,7 +72,7 @@
           </div>
           <div class = 'uk-width-1-1'>
             <label for = 'description' class = 'uk-form-label'>Description</label>
-            <textarea id = 'description' class = 'uk-textarea' rows = '5' name = 'description'></textarea>
+            <textarea id = 'description' class = 'uk-textarea' rows = '5' name = 'description' required></textarea>
           </div>
           <div class = 'uk-width-1-1'>
             <div uk-form-custom = 'target: true'>
@@ -97,7 +97,7 @@
             submitting a work order.</p>
           <form id = 'facilityCodeForm' uk-grid>
             <div class = 'uk-width-1-2@s'>
-              <input type = 'text' class = 'uk-input' id = 'facilityCode' name = 'facilityCode'>
+              <input type = 'text' class = 'uk-input' id = 'facilityCode' name = 'facilityCode' required>
             </div>
             <div class = 'uk-width-1-2@s'>
               <button type = 'submit' class = 'uk-button' id = 'facilityCodeFormSubmit'>Enter Code</button>
