@@ -5,4 +5,6 @@ class Room < ApplicationRecord
 
   belongs_to :floor
   belongs_to :facility
+
+  validates :name, presence: true
 end
