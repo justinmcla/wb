@@ -69,30 +69,30 @@ class UI {
     // Load form data based on created objs
 
     UI.get('#facilityName').value = facility.name
-    UI.get('#facilityName').disabled = true
+    UI.get('#facilityName').setAttribute('readonly', '')
 
     Floor.container().appendChild(floor.render())
     Floor.container().children.namedItem(floor.id).setAttribute('selected', '')
-    Floor.container().disabled = true
+    Floor.container().setAttribute('readonly', '')
 
     Room.container().appendChild(room.render())
     Room.container().children.namedItem(room.id).setAttribute('selected', '')
-    Room.container().disabled = true
+    Room.container().setAttribute('readonly', '')
   }
 
   static resetForm() {
     UI.get('#facilityCard').remove()
     UI.get('#fileList').innerHTML = ''
     Floor.container().innerHTML = ''
-    Floor.container().disabled  = false
+    Floor.container().removeAttribute('readonly')
     Room.container().innerHTML  = ''
-    Room.container().disabled   = false
+    Room.container().removeAttribute('readonly')
     UI.get('#facilityName').value = ''
+    UI.get('#facilityName').removeAttribute('readonly')
     UI.get('#disciplines').value  = 'Carpentry'
     UI.get('#description').value  = ''
     UI.get('#imageUpload').value  = ''
     UI.get('#facilityCode').value = ''
-    UI.get('#facilityName').disabled = false
     UI.get('#facilityCode').disabled = false
     UI.get('#instructions').hidden           = false
     UI.get('#resetFormButton').hidden        = true
