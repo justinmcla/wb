@@ -53,10 +53,10 @@ class API {
     return 'http://localhost:3000/api/v1'
   }
 
-	static addresses() {
+  static addresses() {
     return `${API.base()}/addresses`
   }
-	...
+  ...
 }
 
 /* public/js/jwt.js
@@ -85,7 +85,7 @@ class Facility {
     whitelist.forEach(attr => this[attr] = attributes[attr])
     Facility.collection().push(this)
   }
-	...
+  ...
 }
 
 /* public/js/ui.js
