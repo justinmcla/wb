@@ -6,9 +6,9 @@ class Api::V1::ApiController < ActionController::API
     payload = JsonWebToken.decode(auth_token)
     @code   = payload['code']
   rescue JWT::ExpiredSignature
-    render json: { errors: 'Expired token', status: :unauthorized }
+    render json: { errors: 'Credentials expired', status: :unauthorized } and return
   rescue JWT::DecodeError
-    render json: { errors: 'Invalid token', status: :unauthorized }
+    render json: { errors: 'Invalid credentials', status: :unauthorized } and return
   end
 
   def auth_token
