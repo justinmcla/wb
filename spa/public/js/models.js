@@ -310,4 +310,25 @@ class WorkOrder {
     return this.list ||= []
   }
 
+  static show(code) {
+    return fetch(API.workOrders(code), {
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Authorization': JsonWebToken.get()
+      }
+    }).then(res => res.json())
+    .then(json => {
+      if(json.status == 'unprocessable_entity') {
+        return Promise.reject(json.errors)
+      } else {
+        return json
+      }
+    }).catch(error => {
+      console.error(error)
+      document.querySelector('#passwordError').innerHTML = error
+      document.querySelector('#password').classList.add('uk-form-danger')
+    })
+  }
+
 }
