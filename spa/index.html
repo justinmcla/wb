@@ -115,6 +115,52 @@
 
     <button form = 'newWorkOrderForm' id = 'submitWorkOrderButton' class = 'uk-button uk-animation-slide-left' type = 'submit'>Submit Work Order</button>
 
+    <div id = 'submissionModal' uk-modal>
+      <div class = 'uk-modal-dialog' uk-overflow-auto>
+        <button class = 'uk-modal-close-default' type = 'button' uk-close></button>
+        <div class = 'uk-modal-header'>
+          <h2 id = 'submissionResult' class = 'uk-modal-title'></h2>
+          Confirmation: #<strong><span id = 'submissionConfirmation'></span></strong>
+        </div>
+        <div id = 'submissionModalBody' class = 'uk-modal-body'>
+          <span id = 'subFacilityName'></span><br>
+          <span id = 'subFacilityAddress'></span>
+          <span id = 'subFacilityProblemArea'></span><br>
+          <br>
+          <span>Problem:</span><br>
+          <span id = 'subDescription'></span><br>
+          <br>
+          <p class = 'uk-text-justify'>To access status updates for this request on Workbench, enter your confirmation number
+            in the field at the top of this page. The default password for this request is your
+            confirmation number. We recommend that you set a new, more secure password for this
+            request below. To leave your request password unchanged (not recommended), simply close
+            this notification.
+          </p>
+            <form id = 'changeWoPassword' class = 'uk-form-horizontal uk-flex-bottom' uk-grid>
+              <div class = 'uk-width-1-2@s'>
+                <label>Set a new request password:
+                <input type = 'password' class = 'uk-input' id = 'woPassword'></label>
+              </div>
+              <div class = 'uk-width-1-2@s'>
+                <button type = 'submit' class = 'uk-button' id = 'submitWoPassword'>Submit</button>
+              </div>
+              <span id = 'woPasswordError'></span>
+            </form>
+            <p class = 'uk-text-justify'>To receive a copy of this information for your records, please enter your email below.
+            We do not store or sell any user information.</p>
+            <form id = 'setWoEmail' class = 'uk-form-horizontal uk-flex-bottom' uk-grid>
+              <div class = 'uk-width-1-2@s'>
+                <label>Enter your email address:
+                <input type = 'email' class = 'uk-input' id = 'woEmail'></label>
+              </div>
+              <div class = 'uk-width-1-2@s'>
+                <button type = 'submit' class = 'uk-button' id = 'woEmailSubmit'>Submit</button>
+              </div>
+              <span id = 'woEmailError'></span>
+            </form>
+        </div>
+      </div>
+    </div>
 
     <div id = 'workOrderModal' uk-modal>
       <div class = 'uk-modal-dialog' uk-overflow-auto>
