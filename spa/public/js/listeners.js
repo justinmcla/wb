@@ -31,6 +31,25 @@ UI.get('#imageUpload').addEventListener('input', e => {
   }
 })
 
+UI.get('#newWorkOrderForm').addEventListener('submit', e => {
+  e.preventDefault();
+  let data = new FormData(e.target)
+  data.append('facility_id', Facility.findByName(UI.get('#facilityName').value).id)
+  let files = UI.get('#imageUpload').files
+  for(let i = 0; i < files.length; i++) {
+    data.append(`images[${i}]`, files[i])
+  }
+  WorkOrder.create(data).then(workOrder => {
+    if(workOrder) {
+      UI.resetForm()
+      UI.handleNewWorkOrder(workOrder)
+    } else {
+      return Promise.reject('Unable to create work order')
+    }
+  }).catch(error => {
+    console.error(error)
+  })
+})
 UI.get('#facilityCodeForm').addEventListener('submit', e => {
   e.preventDefault();
   UI.get('#passwordForm').dataset.requestType = 'room'
