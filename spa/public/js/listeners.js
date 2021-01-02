@@ -112,6 +112,8 @@ UI.get('#passwordForm').addEventListener('submit', e => {
   })
 })
 
+UI.get('#resetFormButton').addEventListener('click', e => {
+  UI.resetForm()
 })
 
 })
