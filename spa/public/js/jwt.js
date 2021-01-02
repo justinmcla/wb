@@ -21,7 +21,8 @@ class JsonWebToken {
     this.token = null
   }
 
-  static fetchToken(requestType, code, password) {
+  // Clears current token and requests new token from API.
+  static requestToken(requestType, code, password) {
     this.clear()
 
     return fetch(API.auth(), {
