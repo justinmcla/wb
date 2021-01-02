@@ -3,4 +3,7 @@ class AlternateContact < ApplicationRecord
   has_one :department, as: :departmentable
   has_one :phone, as: :phoneable
   has_one :email, as: :emailable
+
+  validates :name, presence: true
+  
 end
