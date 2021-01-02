@@ -17,25 +17,24 @@ class JsonWebToken {
     this.token = token
   }
 
-  static fetchToken(requestType, code, password) {
   static clear() {
     this.token = null
-    const authOptions = {
   }
+
+  static fetchToken(requestType, code, password) {
+    this.clear()
+
+    return fetch(API.auth(), {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json'
-      },
-      body: JSON.stringify({
+      }, body: JSON.stringify({
         'request_type': requestType,
         'code': code,
         'password': password
       })
-    }
-
-    fetch(API.auth(), authOptions)
-      .then(res => res.json())
+    }).then(res => res.json())
       .then(json => {
         if (json.status == 'ok') {
           return json
