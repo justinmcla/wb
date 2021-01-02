@@ -32,6 +32,6 @@ class WorkOrder < ApplicationRecord
   end
 
   def set_status
-    self.status = 'pending'
+    self.status ||= 'Pending'
   end
 end
