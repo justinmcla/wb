@@ -190,7 +190,7 @@ class Room {
       }
     }).then(res => res.json())
       .then(json => {
-        if (json.status == 'unprocessable_entity') {
+        if (json.status == 422) {
           return Promise.reject(json.errors)
         }
         return json
