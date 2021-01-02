@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang = 'en'>
+
   <head>
     <meta charset = 'utf-8'>
     <meta name = 'viewport' content = 'width=device-width, initial-scale=1.0'>
@@ -16,7 +17,9 @@
     <script type = 'application/javascript' src = 'public/js/ui.js'></script>
     <script defer type = 'application/javascript' src = 'public/js/listeners.js'></script>
   </head>
+
   <body class = 'uk-container'>
+
     <header id = 'header' class = 'uk-section-default uk-animation-slide-top' uk-grid>
       <div class = 'uk-width-1-2@s'><h1 id = 'pageTitle' class = 'uk-header'>Workbench</h1></div>
       <div class = 'uk-width-1-2@s' id = 'statusFormDiv'>
@@ -26,8 +29,11 @@
         </form>
       </div>
     </header>
+
     <main uk-grid class = 'uk-flex uk-flex-wrap-reverse'>
+
       <section id = 'main' class = 'uk-section-default uk-width-1-2@s uk-animation-slide-left'>
+
         <form id = 'newWorkOrderForm' uk-grid>
           <div class = 'uk-width-1-1'>
             <label for = 'facilityName' class = 'uk-form-label'>Facility Name</label>
@@ -76,8 +82,11 @@
             <span id = 'fileList'></span>
           </div>
         </form>
+
       </section>
+
       <section id = 'side' class = 'uk-section-default uk-width-1-2@s uk-animation-slide-right'>
+
         <article id = 'instructions'>
           <h3 class = 'uk-header'>Maintenance Request Instructions</h3>
           <p>To submit a work order for a publicly-owned facility, start by typing in the name
@@ -95,10 +104,17 @@
             </div>
           </form>
         </article>
+
         <br><br>
+
         <button type = 'button' id = 'resetFormButton' class = 'uk-button' hidden>RESET FORM</button>
+
       </section>
+
     </main>
+
+
+
     <div id = 'workOrderModal' uk-modal>
       <div class = 'uk-modal-dialog'>
         <button class = 'uk-modal-close-default' type = 'button' uk-close></button>
@@ -120,6 +136,7 @@
       </div>
     </div>
     <button id = 'submitWorkOrderButton' class = 'uk-button uk-animation-slide-left' type = 'button'>Submit Work Order</button>
+
     <div id = 'passwordModal' uk-modal>
       <div class = 'uk-modal-dialog'>
         <button class = 'uk-modal-close-default' type = 'button' uk-close></button>
