@@ -89,7 +89,7 @@ UI.get('#passwordForm').addEventListener('submit', e => {
   const requestCode = e.target.dataset.requestCode
   const password    = UI.get('#password').value
 
-  JsonWebToken.fetchToken(requestType, requestCode, password).then(() => {
+  JsonWebToken.requestToken(requestType, requestCode, password).then(() => {
     if(JsonWebToken.get()) {
       if(requestType == 'room') {
         Room.show(requestCode).then(json => {
@@ -151,6 +151,4 @@ UI.get('#submissionModal').addEventListener('hidden', e => {
   UI.get('#woPassword').className = 'uk-input'
   UI.get('#woPassword').value = ''
   UI.get('#woPasswordError').innerHTML = ''
-})
-
 })
