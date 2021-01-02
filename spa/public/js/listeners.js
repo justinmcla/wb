@@ -116,4 +116,35 @@ UI.get('#resetFormButton').addEventListener('click', e => {
   UI.resetForm()
 })
 
+UI.get('#changeWoPassword').addEventListener('submit', e => {
+  e.preventDefault()
+  const code = UI.get('#submissionConfirmation').innerHTML
+  const pass = UI.get('#woPassword').value
+  fetch(API.workOrders(code), {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      'Authorization': JsonWebToken.get()
+    }, body: JSON.stringify({
+      'code': code,
+      'password': pass
+    })
+  }).then(res => res.json())
+  .then(json => {
+    if(json.status == 'ok') {
+      JsonWebToken.set(json.token)
+      UI.get('#woPassword').classList.add('uk-form-success')
+      UI.get('#woPasswordError').innerHTML = 'Password changed.'
+    } else {
+      return Promise.reject(json.errors)
+    }
+  })
+  .catch(error => {
+    console.error(error)
+    UI.get('#woPassword').classList.add('uk-form-danger')
+    UI.get('#woPasswordError').innerHTML = error
+  })
+})
+
 })
