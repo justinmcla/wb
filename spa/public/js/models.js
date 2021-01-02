@@ -29,7 +29,7 @@ class Facility {
     return fetch(API.facilities())
     .then(res => res.json())
     .then(facilities => {
-      facilities.data.forEach(attr => new Facility(attr.attributes))
+      facilities.forEach(attr => new Facility(attr))
       this.load()
       return this.collection()
     })
@@ -96,7 +96,7 @@ class Floor {
     return fetch(API.floors())
     .then(res => res.json())
     .then(floors => {
-      floors.data.forEach(attr => new Floor(attr.attributes))
+      floors.forEach(attr => new Floor(attr))
       return this.collection()
     })
   }
@@ -145,7 +145,7 @@ class Room {
     return fetch(API.rooms())
     .then(res => res.json())
     .then(rooms => {
-      rooms.data.forEach(attr => new Room(attr.attributes))
+      rooms.forEach(attr => new Room(attr))
       return this.collection()
     })
   }
@@ -229,7 +229,7 @@ class Address {
     return fetch(API.addresses())
       .then(res => res.json())
       .then(addresses => {
-        addresses.data.forEach(attr => new Address(attr.attributes))
+        addresses.forEach(attr => new Address(attr))
         return this.collection()
       })
   }
