@@ -8,7 +8,6 @@ class WorkOrder < ApplicationRecord
   belongs_to :facility
   belongs_to :room
 
-
   validates :status, presence: true
   validates :status, inclusion: { in: [
     'Pending', 'Assigned', 'On Hold',
@@ -27,7 +26,7 @@ class WorkOrder < ApplicationRecord
   def set_confirmation_and_password
     # ~17m possibilities
     self.confirmation ||= SecureRandom.hex 6
-    self.password ||= self.confirmation
+    self.password     ||= self.confirmation
   end
 
   def set_status
