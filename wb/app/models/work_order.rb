@@ -25,12 +25,10 @@ class WorkOrder < ApplicationRecord
 
   private
 
-  def set_confirmation
+  def set_confirmation_and_password
     # ~17m possibilities
-    self.confirmation = SecureRandom.hex 6
-    while WorkOrder.find_by confirmation: self.confirmation
-      self.confirmation = SecureRandom.hex 6
-    end
+    self.confirmation ||= SecureRandom.hex 6
+    self.password ||= self.confirmation
   end
 
   def set_status
