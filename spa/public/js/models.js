@@ -331,4 +331,25 @@ class WorkOrder {
     })
   }
 
+  static create(data) {
+    return fetch(API.workOrders(), {
+      method: 'POST',
+      headers: {
+        'Authorization': JsonWebToken.get()
+      }, body: data
+    }).then(res => res.json())
+    .then(json => {
+      if(json.status == 'ok') {
+        JsonWebToken.set(json.token)
+        const createdWorkOrder = new WorkOrder(json.data.data.attributes)
+        return createdWorkOrder
+      } else {
+        return Promise.reject(json.errors)
+      }
+    }).catch(error => {
+      console.error(error)
+      UI.get('#alertError').innerHTML = error
+      UIkit.modal(UI.get('#alertModal')).show()
+    })
+  }
 }
