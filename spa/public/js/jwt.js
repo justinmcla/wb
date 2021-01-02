@@ -18,8 +18,10 @@ class JsonWebToken {
   }
 
   static fetchToken(requestType, code, password) {
+  static clear() {
     this.token = null
     const authOptions = {
+  }
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
