@@ -82,6 +82,36 @@ UI.get('#statusForm').addEventListener('submit', e => {
     code.classList.add('uk-form-danger')
   }
 })
+
+UI.get('#passwordForm').addEventListener('submit', e => {
+  e.preventDefault();
+  const requestType = e.target.dataset.requestType
+  const requestCode = e.target.dataset.requestCode
+  const password    = UI.get('#password').value
+
+  JsonWebToken.fetchToken(requestType, requestCode, password).then(() => {
+    if(JsonWebToken.get()) {
+      if(requestType == 'room') {
+        Room.show(requestCode).then(json => {
+          UIkit.modal(UI.get('#passwordModal')).hide()
+          UI.handleFacilityCodeSubmission(json)
+        }).catch(error => {
+          console.error(error)
+          UI.get('#passwordError').innerHTML = error
+        })
+      } else if (requestType == 'workOrder') {
+        WorkOrder.show(requestCode).then(json => {
+          UIkit.modal(UI.get('#passwordModal')).hide()
+          UI.handleCheckWorkOrderSubmission(json)
+        }).catch(error => {
+          console.error(error)
+          UI.get('#passwordError').innerHTML = error
+        })
+      }
+    }
+  })
+})
+
 })
 
 })
