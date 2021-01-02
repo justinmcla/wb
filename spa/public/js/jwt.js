@@ -38,7 +38,7 @@ class JsonWebToken {
         })
       }).then(res => res.json())
       .then(json => {
-        if (json.status == 'ok') {
+        if (json.status == 200) {
           JsonWebToken.set(json.token)
           return json
         } else {
