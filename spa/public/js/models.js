@@ -180,6 +180,28 @@ class Room {
     rooms.forEach( room => Room.container().appendChild(room.render()) )
   }
 
+  // Grabs room information using JWT
+  static show(code) {
+    return fetch(API.rooms(code), {
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Authorization': JsonWebToken.get()
+      }
+    }).then(res => res.json())
+      .then(json => {
+        if (json.status == 'unprocessable_entity') {
+          return Promise.reject(json.errors)
+        }
+        return json
+      })
+      .catch(error => {
+        console.error(error)
+        document.querySelector('#passwordError').innerHTML = error
+        document.querySelector('#password').classList.add('uk-form-danger')
+      })
+  }
+
   // Returns option node element to be appended to the DOM
   render() {
     this.element ||= document.createElement('option')
