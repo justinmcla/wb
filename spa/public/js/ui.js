@@ -14,7 +14,7 @@ class UI {
   }
 
   static renderWorkOrder(workOrder, facility, address, floor, room) {
-    UI.get('#woTitle').innerHTML = `${workOrder.discipline} Request #${workOrder.confirmation}`
+    UI.get('#woTitle').innerHTML = `${workOrder.discipline} Request #<strong>${workOrder.confirmation}</strong>`
     UI.get('#woStatus').innerHTML = `STATUS: ${workOrder.status.toUpperCase()}`
     UI.get('#woFacilityName').innerHTML = facility.name
     UI.get('#woFacilityAddress').innerHTML = ''
@@ -22,7 +22,6 @@ class UI {
     UI.get('#woFacilityProblemArea').innerHTML = `Floor ${floor.number}, ${room.name}`
     UI.get('#woDescription').innerHTML = workOrder.description
     if (workOrder.response) {UI.get('#woResponse').innerHTML = workOrder.response}
-
     UIkit.modal(UI.get('#workOrderModal')).show()
   }
 
