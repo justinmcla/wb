@@ -1,53 +1,49 @@
 class Api::V1::WorkOrdersController < Api::V1::ApiController
-  before_action :authenticate_token, only: [:show, :update]
+  before_action :authenticate_token, only: %i[show update]
 
   def show
-    work_order = WorkOrder.find_by confirmation: @code
-    if work_order
-      render json: WorkOrderSerializer.new(work_order, include: [:facility, :room])
-    else
-      render json: {errors: 'Work order not found.',
-        status: :unprocessable_entity}
-    end
+    work_order ? render_work_order(work_order) : render_no_record
   end
 
   def create
-    if is_private strong_params['facility_id']
-      authenticate_token
-      return unless @code
-    end
-    work_order = WorkOrder.new(strong_params)
-    work_order.password = work_order.confirmation
-    if work_order.save
-      render json: { data: WorkOrderSerializer.new(work_order,
-        include: [:facility, :room]), status: :ok, token: JsonWebToken.encode({ code: work_order.confirmation }) }
-    else
-      render json: { errors: work_order.errors.full_messages, status: :unprocessable_entity }
-    end
+    authenticate_token if facility.private
+    new_work_order = WorkOrder.new(strong_params)
+    new_work_order.save ? render_with_token(new_work_order) : render_errors(new_work_order)
   end
 
   def update
-    work_order = WorkOrder.find_by confirmation: @code
-    if work_order
-      work_order.update(patch_params)
-      render json: { token: JsonWebToken.encode({ code: work_order.confirmation }), message: 'updated', status: :ok }
-    else
-      render json: { errors: 'Work order not found.', status: :unprocessable_entity }
-    end
+    work_order.assign_attributes(patch_params) if work_order
+    work_order.save ? render_with_token(work_order) : render_errors(work_order)
   end
 
   private
 
+  def work_order
+    @work_order ||= WorkOrder.find_by confirmation: @code
+  end
+
+  def facility
+    @facility ||= Facility.find_by_id strong_params['facility_id']
+  end
+
+  def render_work_order(work_order)
+    options = { include: %i[facility facility.address room room.floor] }
+    render json: WorkOrderSerializer.new(work_order, options)
+  end
+
+  def render_with_token(work_order)
+    token = JsonWebToken.encode({ code: work_order.confirmation })
+    render json: {
+      data: WorkOrderSerializer.new(work_order, include: %i[facility room]),
+      token: token
+    }
+  end
+
   def strong_params
-    params.permit('facility_id', 'room_id', 'discipline', 'description', 'password', 'confirmation', 'images')
+    params.permit('facility_id', 'room_id', 'discipline', 'description')
   end
 
   def patch_params
     params.permit('password')
   end
-
-  def is_private facility
-    Facility.find_by_id(facility).private
-  end
-
 end
