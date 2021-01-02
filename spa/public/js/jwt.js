@@ -48,6 +48,7 @@ class JsonWebToken {
       })
       .catch(error => {
         console.error(error)
+        document.querySelector('#passwordError').innerHTML = error
         document.querySelector('#password').classList.add('uk-form-danger')
       })
   }
