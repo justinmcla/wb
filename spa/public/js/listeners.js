@@ -55,7 +55,7 @@ UI.get('#passwordForm').addEventListener('submit', e => {
       } else if (requestType == 'workOrder') {
         WorkOrder.show(requestCode).then(json => {
           UIkit.modal(UI.get('#passwordModal')).hide()
-          UI.handleCheckWorkOrderSubmission(json)
+          UI.handleStatusCheck(json)
         }).catch(error => {
           console.error(error)
           UI.get('#passwordError').innerHTML = error
