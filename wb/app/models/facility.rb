@@ -4,7 +4,7 @@ class Facility < ApplicationRecord
   has_one :address, as: :addressable
   has_many :emails, as: :emailable
   has_many :phones, as: :phoneable
-  belongs_to :user
+  belongs_to :admin_user
 
   accepts_nested_attributes_for :address
   accepts_nested_attributes_for :emails
