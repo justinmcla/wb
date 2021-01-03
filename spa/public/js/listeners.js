@@ -11,7 +11,7 @@ UI.get('#facilityName').addEventListener('input', e => {
   selected ? UI.handleFacilityInput(selected) : UI.clearFacilityInput()
 })
 
-Floor.container().addEventListener('input', e => {
+UI.get('#floorNumbers').addEventListener('input', e => {
   Room.container().innerHTML = ''
   Room.loadByFloor(e.target.value)
 })
