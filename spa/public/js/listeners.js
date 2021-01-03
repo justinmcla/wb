@@ -20,6 +20,8 @@ UI.get('#passwordModal').addEventListener('hidden', e => {
   UI.clearField('#password')
 })
 
+UI.get('#subModal').addEventListener('hidden', e => {
+  UI.clearField('#woPassword')
 })
 
 UI.get('#facilityCodeForm').addEventListener('submit', e => {
