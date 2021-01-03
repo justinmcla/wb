@@ -7,16 +7,8 @@ UI.get('#resetFormButton').addEventListener('click', e => {
 })
 
 UI.get('#facilityName').addEventListener('input', e => {
-  const selected = UI.facilityInput(e)
-  if (selected) {
-    UI.handleFacilityInput(selected)
-  } else {
-    UI.get('#resetFormButton').hidden = true
-    UI.get('#instructions').hidden = false
-    if (UI.get('#facilityCard')) { UI.get('#facilityCard').remove() }
-    Floor.container().innerHTML = ''
-    Room.container().innerHTML  = ''
-  }
+  const selected = UI.getFacilityInput(e)
+  selected ? UI.handleFacilityInput(selected) : UI.clearFacilityInput()
 })
 
 Floor.container().addEventListener('input', e => {
