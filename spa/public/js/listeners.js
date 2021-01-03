@@ -16,24 +16,6 @@ UI.get('#floorNumbers').addEventListener('input', e => {
   Room.loadByFloor(e.target.value)
 })
 
-UI.get('#newWorkOrderForm').addEventListener('submit', e => {
-  e.preventDefault();
-  let data = new FormData(e.target)
-  data.append('facility_id', Facility.findByName(UI.get('#facilityName').value).id)
-  let files = UI.get('#imageUpload').files
-  for(let i = 0; i < files.length; i++) {
-    data.append(`images[${i}]`, files[i])
-  }
-  WorkOrder.create(data).then(workOrder => {
-    if(workOrder) {
-      UI.resetForm()
-      UI.handleNewWorkOrder(workOrder)
-    } else {
-      return Promise.reject('Unable to create work order')
-    }
-  }).catch(error => {
-    console.error(error)
-  })
 })
 
 UI.get('#passwordModal').addEventListener('hidden', e => {
@@ -99,6 +81,20 @@ UI.get('#passwordForm').addEventListener('submit', e => {
 
 UI.get('#resetFormButton').addEventListener('click', e => {
   UI.resetForm()
+UI.get('#newWorkOrderForm').addEventListener('submit', e => {
+  e.preventDefault()
+  let data = new FormData(e.target)
+  data.set('facility_id', Facility.findByName(UI.get('#facilityName').value).id)
+  WorkOrder.create(data).then(workOrder => {
+    if(workOrder) {
+      UI.resetForm()
+      UI.handleNewWorkOrder(workOrder)
+    } else {
+      return Promise.reject('Unable to create work order')
+    }
+  }).catch(error => {
+    console.error(error)
+  })
 })
 
 UI.get('#changeWoPassword').addEventListener('submit', e => {
