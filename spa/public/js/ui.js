@@ -95,7 +95,7 @@ class UI {
   static renderNewWorkOrder(workOrder, facility, address, room, floor) {
     UI.get('#subModalHeader').innerHTML = `
       <h2 class = 'uk-modal-title'>${workOrder.discipline} Request Received</h2><br>
-      Confirmation #: ${workOrder.confirmation}`
+      Confirmation #: <span id = 'subConfirmation'>${workOrder.confirmation}</span>`
 
     UI.get('#subData').innerHTML = `
         ${facility.name}
@@ -120,7 +120,7 @@ class UI {
     const error = UI.get(`${formField}Error`)
     field.value = ''
     field.className = 'uk-input'
-    error.innerHTML = ''
+    if(error) { error.innerHTML = '' }
   }
 
   static displayFacility(facility) {
@@ -150,7 +150,7 @@ class UI {
     Room.container().appendChild(room.render())
 
     UI.get('#facilityCodeForm').hidden = true
-    UI.get('#resetButton').hidden      = false
+    UI.get('#resetFormButton').hidden  = false
     UI.displayFacility(facility)
   }
 
@@ -160,6 +160,7 @@ class UI {
     UI.get('#disciplines').value  = 'Carpentry'
     UI.get('#description').value  = ''
     UI.get('#facilityCode').value = ''
+    UI.get('#confirmationCode').value = ''
 
     Floor.container().innerHTML = ''
     Room.container().innerHTML  = ''
