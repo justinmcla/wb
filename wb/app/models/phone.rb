@@ -3,6 +3,6 @@ class Phone < ApplicationRecord
 
   validates :number, presence: true
   validates :number, format: { with:
-    %r{^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$}
+    %r{\A(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}\z}
   }
 end
