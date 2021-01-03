@@ -16,12 +16,10 @@ UI.get('#floorNumbers').addEventListener('input', e => {
   Room.loadByFloor(e.target.value)
 })
 
+UI.get('#passwordModal').addEventListener('hidden', e => {
+  UI.clearField('#password')
 })
 
-UI.get('#passwordModal').addEventListener('hidden', e => {
-  UI.get('#password').value = ''
-  UI.get('#password').className = 'uk-input'
-  UI.get('#passwordError').innerHTML = ''
 })
 
 UI.get('#facilityCodeForm').addEventListener('submit', e => {
