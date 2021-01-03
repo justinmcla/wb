@@ -70,7 +70,7 @@ Rails.application.configure do
     end
   end
 
-  # Use Amazon S3 for direct file uploads
-  config.active_storage.service = :amazon
+  # # Use Amazon S3 for direct file uploads
+  # config.active_storage.service = :amazon
 
 end

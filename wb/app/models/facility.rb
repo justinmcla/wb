@@ -10,8 +10,6 @@ class Facility < ApplicationRecord
   accepts_nested_attributes_for :emails
   accepts_nested_attributes_for :phones
 
-  has_many_attached :images
-
   validates :name,    presence: true
   validates :private, presence: true
 

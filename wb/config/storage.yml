@@ -9,12 +9,12 @@ local:
 # Local environment variables are being used in lieu of the Rails key store.
 # Contact justin@devjwm.net to set up AWS IAM credentials for S3 access.
 
-amazon:
-  service: S3
-  access_key_id: <%= ENV['AWS_ACCESS_KEY_ID'] %>
-  secret_access_key: <%= ENV['AWS_SECRET_ACCESS_KEY'] %>
-  region: us-east-1
-  bucket: workbench.development
+# amazon:
+#   service: S3
+#   access_key_id: <%= ENV['AWS_ACCESS_KEY_ID'] %>
+#   secret_access_key: <%= ENV['AWS_SECRET_ACCESS_KEY'] %>
+#   region: us-east-1
+#   bucket: workbench.development
 
 # Remember not to checkin your GCS keyfile to a repository
 # google:
