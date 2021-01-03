@@ -1,6 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
   UI.init()
 })
+
+UI.get('#resetFormButton').addEventListener('click', e => {
+  UI.resetForm()
 })
 
 UI.get('#facilityName').addEventListener('input', e => {
