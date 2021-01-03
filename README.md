@@ -23,17 +23,6 @@ rails s
 
 This will install all dependencies, set up the database, and spin up a server, hosted on `3000`.
 
-##### File Uploads
-
-AWS S3 is being utilized for file uploads. Contact justin@devjwm.net to set up credentials to access the S3 development bucket. Once credentials are obtained, create a `.env` file on your local environment within the `wb/wb/` directory and paste in your credentials as below:
-
-```shell
-AWS_ACCESS_KEY_ID=...
-AWS_SECRET_ACCESS_KEY=...
-```
-
-These credentials will then be imported into the `config/storage.yml` file.
-
 ##### Database
 
 The database is built on PostgreSQL. It is helpful, albeit not necessary, to utilize a database software that allows you to view and make changes to tables in the database.
