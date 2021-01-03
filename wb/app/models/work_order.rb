@@ -1,7 +1,7 @@
 class WorkOrder < ApplicationRecord
   to_param :confirmation
   before_validation :set_confirmation_and_password
-  before_validation :set_status
+  before_validation :set_status_and_response
 
   has_secure_password
 
@@ -29,7 +29,8 @@ class WorkOrder < ApplicationRecord
     self.password     ||= self.confirmation
   end
 
-  def set_status
-    self.status ||= 'Pending'
+  def set_status_and_response
+    self.status   ||= 'Pending'
+    self.response ||= self.status
   end
 end
