@@ -87,4 +87,7 @@ end
 Room.all.each { |r| r.update aid: SecureRandom.hex(4) unless r.aid }
 
 # Creates a work order for each room
-Room.all.each { |r| create_work_order r }
+# Room.all.each { |r| create_work_order r }
+
+# Creates default AdminUser for development
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?

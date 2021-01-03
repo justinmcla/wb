@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   root to: redirect('/admin')
 
   # API
@@ -14,13 +15,4 @@ Rails.application.routes.draw do
     end
   end
 
-  # ADMIN CONSOLE
-  namespace :admin do
-    root to: 'admin#index'
-    get '/login', to: 'sessions#new'
-    post '/login', to: 'sessions#create'
-    delete '/logout', to: 'sessions#destroy'
-    resources :users, only: :create
-    resources :facilities
-  end
 end

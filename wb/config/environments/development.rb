@@ -70,6 +70,9 @@ Rails.application.configure do
     end
   end
 
+  # Default URL options
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
   # # Use Amazon S3 for direct file uploads
   # config.active_storage.service = :amazon
 

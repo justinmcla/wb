@@ -1,4 +1,4 @@
-class Admin::UsersController < ApplicationController
+class UsersController < ApplicationController
   def create
     user = User.new strong_params
     log_in user if user.save
