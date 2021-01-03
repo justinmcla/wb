@@ -97,7 +97,7 @@ UI.get('#changeWoPassword').addEventListener('submit', e => {
     })
   }).then(res => res.json())
   .then(json => {
-    if(json.status == 'ok') {
+    if(json.status == 200) {
       JsonWebToken.set(json.token)
       UI.get('#woPassword').classList.add('uk-form-success')
       UI.get('#woPasswordError').innerHTML = 'Password changed.'
