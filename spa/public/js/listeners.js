@@ -1,8 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
-  Facility.all();
-  Address.all();
-  Floor.all();
-  Room.all();
+  UI.init()
+})
 })
 
 UI.get('#facilityName').addEventListener('input', e => {
