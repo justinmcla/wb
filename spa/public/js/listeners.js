@@ -83,7 +83,7 @@ UI.get('#newWorkOrderForm').addEventListener('submit', e => {
 
 UI.get('#changeWoPassword').addEventListener('submit', e => {
   e.preventDefault()
-  const code = UI.get('#submissionConfirmation').innerHTML
+  const code = UI.get('#subConfirmation').innerHTML
   const pass = UI.get('#woPassword').value
   fetch(API.workOrders(code), {
     method: 'PATCH',
