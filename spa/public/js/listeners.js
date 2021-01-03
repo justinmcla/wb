@@ -111,9 +111,3 @@ UI.get('#changeWoPassword').addEventListener('submit', e => {
     UI.get('#woPasswordError').innerHTML = error
   })
 })
-
-UI.get('#submissionModal').addEventListener('hidden', e => {
-  UI.get('#woPassword').className = 'uk-input'
-  UI.get('#woPassword').value = ''
-  UI.get('#woPasswordError').innerHTML = ''
-})
