@@ -208,7 +208,7 @@ class Address {
 
   // Automatically caches each new Address
   constructor(attributes) {
-    const whitelist = ['id', 'line_1', 'line_2', 'city', 'state', 'zip', 'addressable_id', 'addressable_type']
+    const whitelist = ['id', 'line_1', 'line_2', 'city', 'state', 'zip', 'addressable_id']
     whitelist.forEach(attr => this[attr] = attributes[attr])
     Address.collection().push(this)
   }
