@@ -35,7 +35,8 @@ class Api::V1::WorkOrdersController < Api::V1::ApiController
     token = JsonWebToken.encode({ code: work_order.confirmation })
     render json: {
       data: WorkOrderSerializer.new(work_order, include: %i[facility room]),
-      token: token
+      token: token,
+      status: 200
     }
   end
 
