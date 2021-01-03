@@ -16,14 +16,6 @@ UI.get('#floorNumbers').addEventListener('input', e => {
   Room.loadByFloor(e.target.value)
 })
 
-UI.get('#imageUpload').addEventListener('input', e => {
-  if (e.target.files.length > 1) {
-    UI.get('#fileList').innerHTML = `${e.target.files.length} images selected`;
-  } else {
-    UI.get('#fileList').innerHTML = `${e.target.files.length} image selected`;
-  }
-})
-
 UI.get('#newWorkOrderForm').addEventListener('submit', e => {
   e.preventDefault();
   let data = new FormData(e.target)
