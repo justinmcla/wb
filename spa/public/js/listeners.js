@@ -65,8 +65,6 @@ UI.get('#passwordForm').addEventListener('submit', e => {
   })
 })
 
-UI.get('#resetFormButton').addEventListener('click', e => {
-  UI.resetForm()
 UI.get('#newWorkOrderForm').addEventListener('submit', e => {
   e.preventDefault()
   let data = new FormData(e.target)
