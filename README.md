@@ -1,4 +1,5 @@
 # Workbench
+
 Workbench is a maintenance work order request ticketing system for public and privately-managed facilities. The back-end is supported by an administrative console and API built on Ruby on Rails. The front-end is a SPA built on vanilla JS, HTML, and CSS. All stylings are built on the UIkit frameworks.
 
 ## Getting Started
@@ -78,16 +79,26 @@ class Facility {
 }
 
 /* public/js/ui.js
-Contains all handler logic for event listeners.
+Contains all handler logic for event listeners. Broken into getters, handlers, and renderers.
 */
 
-// Insert file examples
+class UI {
+  ...
+  static handleFacilityInput(input) {
+    const facility = Facility.findById(input.id)
+    UI.displayFacility(facility)
+    UI.renderOptions(facility)
+  }
+}
 
 /* public/js/listeners.js
-Contains all event listeners
+Contains all event listeners.
 */
 
-// Insert file examples
+UI.get('#floorNumbers').addEventListener('input', e => {
+  Room.container().innerHTML = ''
+  Room.loadByFloor(e.target.value)
+})
 ```
 
 ### API Structure
@@ -127,28 +138,7 @@ BASE_URL/rooms/:aid # returns specific room, based on :aid
 
 ### Admin Console
 
-The Admin Console is built on Rails, and so it uses the built-in MVC model to render HTML.
-
-##### Routes & Controllers
-
-All routing for the admin console is within the admin namespace.
-
-```ruby
-# config/routes.rb
-
-namespace :admin do
-  get '/', to: 'admin#index' #
-  # . . .
-end
-```
-
-##### Layouts & Views
-
-The default admin console layout is the standard `application.html.erb` layout file provided by Rails with a small modification. As Rails 6 now defaults to Webpacker to handle JavaScript files, the default layout file has been adjusted to incorporate stylesheets as well.
-
-The `app/javascript/application.js` file has been modified to require a new `stylesheets/application.scss` file created in the `app/javascript` folder. <a href = 'https://www.getuikit.com'>UIkit</a> JavaScript is being imported here as well.
-
-Within the new `application.scss` file, custom theme files are being imported along with the default <a href = 'https://www.getuikit.com'>UIkit</a> SCSS files.
+The Admin Console is being built using the ActiveAdmin gem. All logic is contained within the wb/app/admin directory.
 
 ## Contributing
 
@@ -170,3 +160,6 @@ bg-resetbuttonfix-17
 
 Pull requests will be reviewed as they are received. Contributions should be limited to bug fixes, unless the feature request is marked as cleared for contribution.
 
+## License
+
+MIT.
