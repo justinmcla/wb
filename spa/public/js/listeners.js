@@ -85,6 +85,11 @@ UI.get('#changeWoPassword').addEventListener('submit', e => {
   e.preventDefault()
   const code = UI.get('#subConfirmation').innerHTML
   const pass = UI.get('#woPassword').value
+  if (pass = '') {
+    UI.get('#woPassword').classList.add('uk-form-danger')
+    UI.get('#woPasswordError').innerHTML = 'Password must not be blank.'
+    return
+  }
   fetch(API.workOrders(code), {
     method: 'PATCH',
     headers: {
