@@ -166,7 +166,8 @@ class Room {
   // Loads rooms based on selected floor
   static loadByFloor(id) {
     const rooms = Room.collection().filter(r => r.floor_id == id)
-    rooms.forEach(room => Room.container().appendChild(room.render()))
+    const sortedRooms = rooms.sort((a, b) => (a.name > b.name) ? 1 : -1)
+    sortedRooms.forEach(room => Room.container().appendChild(room.render()))
   }
 
   // Grabs room information using JWT
