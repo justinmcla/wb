@@ -1,21 +1,26 @@
+// Grabs all public facility data and loads work order form.
 document.addEventListener('DOMContentLoaded', () => {
   UI.init()
 })
 
+// Clears form data, removes facility card, shows instructions
 UI.get('#resetFormButton').addEventListener('click', e => {
   UI.resetForm()
 })
 
+// Grabs actual list node based on what is typed in text field
 UI.get('#facilityName').addEventListener('input', e => {
   const selected = UI.getFacilityInput(e)
   selected ? UI.handleFacilityInput(selected) : UI.clearFacilityInput()
 })
 
+// Loads rooms by floor (alphabetized)
 UI.get('#floorNumbers').addEventListener('input', e => {
   Room.container().innerHTML = ''
   Room.loadByFloor(e.target.value)
 })
 
+// Below two methods clear fields and removes validation styles
 UI.get('#passwordModal').addEventListener('hidden', e => {
   UI.clearField('#password')
 })
@@ -24,6 +29,7 @@ UI.get('#subModal').addEventListener('hidden', e => {
   UI.clearField('#woPassword')
 })
 
+// Below two methods set password form to grab correct data
 UI.get('#facilityCodeForm').addEventListener('submit', e => {
   e.preventDefault();
   const code = UI.get('#facilityCode')
@@ -36,6 +42,7 @@ UI.get('#statusForm').addEventListener('submit', e => {
   UI.populatePasswordModal(code, 'workOrder')
 })
 
+// Requests token and grabs data based on dataset
 UI.get('#passwordForm').addEventListener('submit', e => {
   e.preventDefault();
   const requestType = e.target.dataset.requestType
@@ -65,6 +72,7 @@ UI.get('#passwordForm').addEventListener('submit', e => {
   })
 })
 
+// Handles new work order submission
 UI.get('#newWorkOrderForm').addEventListener('submit', e => {
   e.preventDefault()
   let data = new FormData(e.target)
@@ -81,6 +89,7 @@ UI.get('#newWorkOrderForm').addEventListener('submit', e => {
   })
 })
 
+// Handles password updates for new work orders
 UI.get('#changeWoPassword').addEventListener('submit', e => {
   e.preventDefault()
   const code = UI.get('#subConfirmation').innerHTML
