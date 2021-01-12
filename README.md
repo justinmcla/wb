@@ -1,6 +1,6 @@
 # Workbench
 
-Workbench is a maintenance work order request ticketing system for public and privately-managed facilities. The back-end is supported by an administrative console and API built on Ruby on Rails. The front-end is a SPA built on vanilla JS, HTML, and CSS. All stylings are built on the UIkit frameworks.
+Workbench is a maintenance work order request ticketing system for public and privately-managed facilities. The back-end is supported by an administrative console and API built on Ruby on Rails. The front-end is a SPA built on vanilla JS, HTML, and CSS. All stylings are built on the UIkit framework.
 
 ## Getting Started
 
@@ -12,7 +12,7 @@ The front-end should be able to be developed right out the box. I recommend eith
 
 ##### API/Admin
 
-Upon cloning to your local environment, run the following commands:
+The backend is built on <strong>Rails 6.0.3</strong> & <strong>Ruby 2.6.1</strong>. Upon cloning to your local environment, run the following commands:
 
 ```Ruby
 bundle install
@@ -22,11 +22,11 @@ rails db:seed
 rails s
 ```
 
-This will install all dependencies, set up the database, and spin up a server, hosted on `3000`.
+This will install all dependencies, set up the database, and spin up a server, hosted on `3000`. Seed data will be built as laid out in `wb/db/seeds.rb`, randomly generating facilities, rooms, floors, addresses, and work orders. By default, seed data will not overwrite itself. To do so, adjust any conditionals at the bottom of the seeds file.
 
 ##### Database
 
-The database is built on PostgreSQL. It is helpful, albeit not necessary, to utilize a database software that allows you to view and make changes to tables in the database.
+The database is built on <strong>PostgreSQL 13.1</strong>. It is helpful, albeit not necessary, to utilize a database software that allows you to view and make changes to tables in the database.
 
 ### JavaScript Modules
 
@@ -132,13 +132,23 @@ BASE_URL/facilities # returns all public facilities
 BASE_URL/floors     # returns all floors for public facilities
 BASE_URL/rooms      # returns all rooms for public facilities
 
+# create
+BASE_URL/work_orders
+BASE_URL/auth
+
+**PROTECTED**
+  
 # show
-BASE_URL/rooms/:aid # returns specific room, based on :aid
+BASE_URL/rooms/:aid
+BASE_URL/work_orders/:confirmation
+
+# update
+BASE_URL/work_orders/:confirmation
 ```
 
 ### Admin Console
 
-The Admin Console is being built using the ActiveAdmin gem. All logic is contained within the wb/app/admin directory.
+The Admin Console is currently being built using the ActiveAdmin gem. All logic is contained within the wb/app/admin directory.
 
 ## Contributing
 
