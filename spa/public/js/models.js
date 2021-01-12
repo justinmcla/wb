@@ -332,4 +332,26 @@ class WorkOrder {
         UIkit.modal(UI.get('#alertModal')).show()
       })
   }
+
+  static updatePassword(code, pass) {
+    return fetch(API.workOrders(code), {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Authorization': JsonWebToken.get()
+      }, body: JSON.stringify({
+        'code': code,
+        'password': pass
+      })
+    }).then(res => res.json())
+    .then(json => {
+      if (json.status == 200) {
+        JsonWebToken.set(json.token)
+        return json
+      } else {
+        return Promise.reject(json.errors)
+      }
+    })
+  }
 }
