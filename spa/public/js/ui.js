@@ -155,12 +155,10 @@ class UI {
   }
 
   static resetForm() {
-    UI.get('#facilityName').value = ''
+    UI.get('#newWorkOrderForm').reset()
+    UI.get('#facilityCodeForm').reset()
+    UI.get('#statusForm').reset()
     UI.get('#facilityName').removeAttribute('readonly')
-    UI.get('#disciplines').value  = 'Carpentry'
-    UI.get('#description').value  = ''
-    UI.get('#facilityCode').value = ''
-    UI.get('#confirmationCode').value = ''
 
     Floor.container().innerHTML = ''
     Room.container().innerHTML  = ''
