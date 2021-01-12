@@ -80,14 +80,14 @@ FACILITIES.each { |f| Facility.create f unless Facility.find_by(name: f[:name]) 
 # Creates floors, rooms, and addresses for facilities unless those attributes already exist
 Facility.all.each do |f|
   create_floors_and_rooms f unless f.floors.count > 0
-  create_facility_address f unless f.address != nil
+  create_facility_address f unless f.address
 end
 
 # Creates an AID for each room to be used as a default facility code.
 Room.all.each { |r| r.update aid: SecureRandom.hex(4) unless r.aid }
 
 # Creates a work order for each room
-# Room.all.each { |r| create_work_order r }
+Room.all.each { |r| create_work_order r unless r.work_orders.size >= 1 }
 
 # Creates default AdminUser for development
 AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
